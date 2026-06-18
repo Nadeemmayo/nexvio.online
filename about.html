@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="canonical" href="https://nexvio.online/about.html" />
+  <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/2103/2103633.png" type="image/png">
+  <title>About Nexvio | Elite SEO & Digital Authority Agency</title>
+  <meta name="description" content="Learn about Nexvio — an elite digital authority agency delivering premium link building, guest posting, and strategic SEO solutions for brands that demand results.">
+  <meta property="og:title" content="About Nexvio | Elite Digital Authority Agency">
+  <meta property="og:description" content="Nexvio helps global brands grow organic authority through precision link building, editorial guest posting, and white-hat SEO campaigns.">
+  <meta property="og:url" content="https://nexvio.online/about.html">
+  <meta property="og:type" content="website">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700;1,900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    html { scroll-behavior: smooth; }
+    * { box-sizing: border-box; }
+    body { background: #f8f5f0; color: #1a1a2e; font-family: 'Inter', sans-serif; }
+    .navbar { background: #1b4332; border-bottom: 1px solid rgba(212,160,23,0.25); }
+    .nav-link { color: rgba(248,245,240,0.75); font-size: 12px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; transition: color 0.3s; }
+    .nav-link:hover, .nav-link.active { color: #d4a017; }
+    .nav-cta { background: #d4a017; color: #1b4332; font-weight: 700; font-size: 12px; letter-spacing: 1px; text-transform: uppercase; border-radius: 4px; padding: 10px 22px; transition: all 0.3s; }
+    .nav-cta:hover { background: #b8960c; transform: translateY(-1px); }
+    .mobile-menu-content { display: none; background: #1b4332; padding: 16px 24px; border-top: 1px solid rgba(212,160,23,0.2); }
+    .mobile-menu-content.active { display: block; }
+    .mobile-menu-content a { display: block; padding: 11px 0; color: rgba(248,245,240,0.8); font-weight: 600; font-size: 12px; letter-spacing: 1px; text-transform: uppercase; border-bottom: 1px solid rgba(248,245,240,0.05); }
+    .mobile-menu-content a:hover { color: #d4a017; }
+    @media (max-width: 768px) { .desktop-menu { display: none !important; } }
+    .hero-about { background: linear-gradient(150deg, #0f2a1e 0%, #1b4332 45%, #2d6a4f 100%); position: relative; overflow: hidden; }
+    .hero-about::after { content: ''; position: absolute; inset: 0; background: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none'%3E%3Ccircle cx='40' cy='40' r='1' fill='%23d4a017' fill-opacity='0.07'/%3E%3C/g%3E%3C/svg%3E"); pointer-events: none; }
+    .hero-badge { display: inline-block; border: 1px solid rgba(212,160,23,0.45); color: #d4a017; font-size: 11px; font-weight: 700; letter-spacing: 4px; text-transform: uppercase; padding: 8px 24px; border-radius: 2px; margin-bottom: 28px; }
+    .hero-title { font-family: 'Playfair Display', serif; font-size: clamp(2.6rem, 5.5vw, 5rem); font-weight: 900; line-height: 1.1; color: #f8f5f0; }
+    .hero-title em { color: #d4a017; font-style: italic; }
+    .section-label { font-size: 11px; font-weight: 700; letter-spacing: 4px; text-transform: uppercase; color: #d4a017; margin-bottom: 12px; display: block; }
+    .section-title { font-family: 'Playfair Display', serif; font-size: clamp(1.9rem, 3.5vw, 3rem); font-weight: 900; color: #1b4332; line-height: 1.2; }
+    .stats-band { background: #ede8df; border-top: 3px solid #d4a017; border-bottom: 3px solid rgba(27,67,50,0.12); }
+    .stat-num { font-family: 'Playfair Display', serif; font-size: 2.8rem; font-weight: 900; color: #1b4332; line-height: 1; }
+    .stat-label { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #2d6a4f; margin-top: 6px; }
+    .pillar-card { background: #fff; border: 1px solid rgba(27,67,50,0.1); border-left: 4px solid #d4a017; border-radius: 6px; padding: 22px 24px; transition: box-shadow 0.3s; }
+    .pillar-card:hover { box-shadow: 0 10px 40px rgba(27,67,50,0.1); }
+    .mission-step-num { font-family: 'Playfair Display', serif; font-size: 1.6rem; font-weight: 900; color: #d4a017; width: 48px; height: 48px; border: 2px solid rgba(212,160,23,0.4); border-radius: 4px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .value-card { background: #fff; border: 1px solid rgba(27,67,50,0.1); border-radius: 8px; padding: 36px 30px; transition: all 0.35s; position: relative; overflow: hidden; }
+    .value-card::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background: #d4a017; transform: scaleX(0); transition: transform 0.35s; }
+    .value-card:hover { transform: translateY(-6px); box-shadow: 0 20px 50px rgba(27,67,50,0.1); }
+    .value-card:hover::after { transform: scaleX(1); }
+    .value-icon { width: 54px; height: 54px; background: #1b4332; border-radius: 6px; display: flex; align-items: center; justify-content: center; color: #d4a017; font-size: 20px; margin-bottom: 20px; }
+    .value-title { font-family: 'Playfair Display', serif; font-size: 1.25rem; font-weight: 700; color: #1b4332; margin-bottom: 10px; }
+    .step-card { background: #f8f5f0; border: 1px solid rgba(27,67,50,0.1); border-radius: 8px; padding: 28px 20px; text-align: center; transition: all 0.3s; }
+    .step-card:hover { background: #1b4332; }
+    .step-card:hover .step-num, .step-card:hover .step-title { color: #d4a017; }
+    .step-card:hover .step-desc { color: rgba(248,245,240,0.7); }
+    .step-num { font-family: 'Playfair Display', serif; font-size: 2.2rem; font-weight: 900; color: rgba(27,67,50,0.25); margin-bottom: 10px; transition: all 0.3s; }
+    .step-title { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 700; color: #1b4332; margin-bottom: 6px; transition: all 0.3s; }
+    .step-desc { color: #4a5568; font-size: 0.82rem; line-height: 1.6; transition: all 0.3s; }
+    .founder-frame { width: 240px; height: 240px; border-radius: 8px; border: 3px solid #d4a017; overflow: hidden; flex-shrink: 0; }
+    .founder-tag { background: #1b4332; color: #d4a017; font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; padding: 7px 18px; border-radius: 2px; display: inline-block; }
+    .social-icon { width: 38px; height: 38px; border-radius: 4px; display: flex; align-items: center; justify-content: center; background: rgba(27,67,50,0.08); color: #1b4332; transition: all 0.3s; font-size: 15px; border: 1px solid rgba(27,67,50,0.15); }
+    .social-icon:hover { background: #d4a017; color: #1b4332; border-color: #d4a017; transform: translateY(-2px); }
+    .cta-section { background: #d4a017; }
+    .btn-dark { background: #1b4332; color: #f8f5f0; font-weight: 700; font-size: 13px; letter-spacing: 1.5px; text-transform: uppercase; border-radius: 4px; padding: 15px 32px; display: inline-block; transition: all 0.3s; }
+    .btn-dark:hover { background: #0f2a1e; transform: translateY(-2px); }
+    .btn-ivory { background: rgba(27,67,50,0.12); color: #1b4332; font-weight: 700; font-size: 13px; letter-spacing: 1.5px; text-transform: uppercase; border-radius: 4px; padding: 15px 32px; display: inline-block; border: 1.5px solid rgba(27,67,50,0.3); transition: all 0.3s; }
+    .btn-ivory:hover { background: rgba(27,67,50,0.22); transform: translateY(-2px); }
+    .footer { background: #0f2419; border-top: 1px solid rgba(212,160,23,0.15); }
+    .footer-link { color: rgba(248,245,240,0.55); font-size: 0.875rem; transition: color 0.3s; display: block; padding: 5px 0; }
+    .footer-link:hover { color: #d4a017; }
+    .footer-heading { font-family: 'Playfair Display', serif; color: #d4a017; font-size: 1rem; font-weight: 700; margin-bottom: 20px; }
+    .footer-social { width: 38px; height: 38px; border-radius: 4px; display: flex; align-items: center; justify-content: center; background: rgba(248,245,240,0.06); color: rgba(248,245,240,0.6); transition: all 0.3s; font-size: 15px; }
+    .footer-social:hover { background: #d4a017; color: #1b4332; transform: translateY(-2px); }
+    .floating-contact { position: fixed; bottom: 24px; right: 24px; z-index: 9999; }
+    .contact-options { display: none; flex-direction: column; gap: 10px; margin-bottom: 12px; }
+    .float-btn { width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; box-shadow: 0 6px 20px rgba(0,0,0,0.3); transition: all 0.3s; }
+    .float-btn:hover { transform: scale(1.1); }
+    .float-main { width: 56px; height: 56px; background: #1b4332; border: 2px solid #d4a017; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #d4a017; box-shadow: 0 8px 30px rgba(27,67,50,0.4); cursor: pointer; transition: all 0.3s; }
+    .float-main:hover { transform: scale(1.08); }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto flex justify-between items-center px-6 py-4">
+      <a href="index.html" style="font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:900;color:#f8f5f0;">NEX<span style="color:#d4a017;">VIO</span></a>
+      <div class="desktop-menu hidden md:flex gap-7 items-center">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="about.html" class="nav-link active">About</a>
+        <a href="Services.html" class="nav-link">Services</a>
+        <a href="portfolio.html" class="nav-link">Portfolio</a>
+        <a href="inventory.html" class="nav-link">Inventory</a>
+        <a href="premium-country-sites.html" class="nav-link">Country Sites</a>
+        <a href="all-niche-sites.html" class="nav-link">All Niches</a>
+        <a href="blog.html" class="nav-link">Blog</a>
+        <a href="FAQs.html" class="nav-link">FAQ</a>
+        <a href="contact.html" class="nav-cta">Get Started</a>
+      </div>
+      <button class="md:hidden text-white text-2xl" id="mobileBtn">☰</button>
+    </div>
+    <div class="mobile-menu-content" id="mobileMenu">
+      <a href="index.html">Home</a><a href="about.html">About</a><a href="Services.html">Services</a>
+      <a href="portfolio.html">Portfolio</a><a href="inventory.html">Inventory</a>
+      <a href="premium-country-sites.html">Country Sites</a><a href="all-niche-sites.html">All Niches</a>
+      <a href="blog.html">Blog</a><a href="FAQs.html">FAQ</a><a href="contact.html">Contact</a>
+    </div>
+  </nav>
+
+  <section class="hero-about py-28 px-6 relative">
+    <div class="max-w-7xl mx-auto relative z-10">
+      <div class="max-w-3xl">
+        <div class="hero-badge">About Nexvio · Digital Authority Specialists</div>
+        <h1 class="hero-title mb-7">Precision-Engineered<br>Authority for Brands<br>That <em>Refuse to Settle</em></h1>
+        <p style="color:rgba(248,245,240,0.68);font-size:1.05rem;line-height:1.85;max-width:560px;" class="mb-12">Nexvio was built for one purpose: to help serious brands earn the organic authority their competitors cannot replicate — through editorial quality, strategic placement, and relentless attention to detail.</p>
+        <div class="flex gap-4 flex-wrap">
+          <a href="contact.html" style="background:#d4a017;color:#1b4332;font-weight:700;font-size:13px;letter-spacing:1.5px;text-transform:uppercase;border-radius:4px;padding:15px 32px;display:inline-block;">Schedule a Consultation</a>
+          <a href="inventory.html" style="border:1.5px solid rgba(248,245,240,0.35);color:#f8f5f0;font-weight:700;font-size:13px;letter-spacing:1.5px;text-transform:uppercase;border-radius:4px;padding:15px 32px;display:inline-block;">View Link Inventory</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="stats-band">
+    <div class="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4">
+      <div class="text-center py-8 px-4" style="border-right:1px solid rgba(27,67,50,0.12);"><div class="stat-num">50K+</div><div class="stat-label">Publisher Sites</div></div>
+      <div class="text-center py-8 px-4" style="border-right:1px solid rgba(27,67,50,0.12);"><div class="stat-num">200+</div><div class="stat-label">Campaigns Delivered</div></div>
+      <div class="text-center py-8 px-4" style="border-right:1px solid rgba(27,67,50,0.12);"><div class="stat-num">20+</div><div class="stat-label">Industries Served</div></div>
+      <div class="text-center py-8 px-4"><div class="stat-num">100%</div><div class="stat-label">White-Hat Methods</div></div>
+    </div>
+  </div>
+
+  <section class="py-24 px-6" style="background:#f8f5f0;">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
+      <div>
+        <span class="section-label">Who We Are</span>
+        <h2 class="section-title mb-6">A Premium Authority Agency<br>for Brands That Compete<br>at the Highest Level</h2>
+        <p style="color:#4a5568;font-size:1rem;line-height:1.85;" class="mb-5">Nexvio focuses exclusively on authority-driven SEO — the kind built through real editorial relationships, relevant placements, and campaigns designed around your long-term growth, not short-term metrics.</p>
+        <p style="color:#4a5568;font-size:1rem;line-height:1.85;" class="mb-8">We do not resell bulk links or automate outreach. Every placement is reviewed against rigorous quality standards before it ever reaches your backlink profile.</p>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="pillar-card"><span style="font-weight:700;color:#1b4332;font-size:0.9rem;">Manual Outreach Only</span></div>
+          <div class="pillar-card"><span style="font-weight:700;color:#1b4332;font-size:0.9rem;">Real Traffic-Verified Sites</span></div>
+          <div class="pillar-card"><span style="font-weight:700;color:#1b4332;font-size:0.9rem;">Niche-Relevant Placements</span></div>
+          <div class="pillar-card"><span style="font-weight:700;color:#1b4332;font-size:0.9rem;">Full Live URL Reporting</span></div>
+        </div>
+      </div>
+      <div style="background:#1b4332;border-radius:8px;padding:40px;">
+        <span class="section-label">Our Mission</span>
+        <h3 style="font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:900;color:#f8f5f0;line-height:1.2;" class="mb-5">Make Authority Building Safer, Cleaner, and More Impactful</h3>
+        <p style="color:rgba(248,245,240,0.65);font-size:0.92rem;line-height:1.8;" class="mb-8">Every campaign at Nexvio is a measured investment in long-term organic visibility — never a shortcut.</p>
+        <div class="space-y-6">
+          <div class="flex gap-4 items-start">
+            <div class="mission-step-num">I</div>
+            <div><h4 style="font-family:'Playfair Display',serif;font-weight:700;color:#f8f5f0;font-size:1rem;" class="mb-1">Relevance Above All</h4><p style="color:rgba(248,245,240,0.6);font-size:0.87rem;line-height:1.7;">Publishers matched by niche, topic, traffic quality, and editorial context — never by domain metric alone.</p></div>
+          </div>
+          <div class="flex gap-4 items-start">
+            <div class="mission-step-num">II</div>
+            <div><h4 style="font-family:'Playfair Display',serif;font-weight:700;color:#f8f5f0;font-size:1rem;" class="mb-1">Campaigns With Architecture</h4><p style="color:rgba(248,245,240,0.6);font-size:0.87rem;line-height:1.7;">Anchor ratios, page targets, link velocity, and content quality planned before a single outreach is sent.</p></div>
+          </div>
+          <div class="flex gap-4 items-start">
+            <div class="mission-step-num">III</div>
+            <div><h4 style="font-family:'Playfair Display',serif;font-weight:700;color:#f8f5f0;font-size:1rem;" class="mb-1">Transparent Delivery</h4><p style="color:rgba(248,245,240,0.6);font-size:0.87rem;line-height:1.7;">Every link delivered with its live URL, placement details, and full context — no black boxes.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-24 px-6" style="background:#f8f5f0;">
+    <div class="max-w-7xl mx-auto">
+      <div class="mb-16 text-center max-w-3xl mx-auto">
+        <span class="section-label">Core Values</span>
+        <h2 class="section-title mb-4">What Separates Nexvio<br>From the Rest</h2>
+        <p style="color:#4a5568;font-size:1rem;line-height:1.8;">Our standards are non-negotiable. Quality, relevance, and transparency define every campaign we run.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
+        <div class="value-card"><div class="value-icon"><i class="fas fa-shield-halved"></i></div><h3 class="value-title">Rigorous Quality Screening</h3><p style="color:#4a5568;font-size:0.88rem;line-height:1.75;">Every publisher site reviewed for traffic signals, spam score, content quality, domain trust, and niche relevance before any placement is approved.</p></div>
+        <div class="value-card"><div class="value-icon"><i class="fas fa-handshake"></i></div><h3 class="value-title">Genuine Manual Outreach</h3><p style="color:#4a5568;font-size:0.88rem;line-height:1.75;">No PBNs, no automated tools, no recycled link farms. Every placement earned through genuine publisher partnerships.</p></div>
+        <div class="value-card"><div class="value-icon"><i class="fas fa-chart-line"></i></div><h3 class="value-title">Long-Term Growth Focus</h3><p style="color:#4a5568;font-size:0.88rem;line-height:1.75;">Nexvio campaigns are built to compound — each link strengthening your authority profile in ways that protect and grow rankings over time.</p></div>
+        <div class="value-card"><div class="value-icon"><i class="fas fa-eye"></i></div><h3 class="value-title">Full Transparency</h3><p style="color:#4a5568;font-size:0.88rem;line-height:1.75;">Live URLs, placement context, and campaign details delivered clearly — so you always know exactly what was built and where.</p></div>
+        <div class="value-card"><div class="value-icon"><i class="fas fa-globe"></i></div><h3 class="value-title">Global Publisher Network</h3><p style="color:#4a5568;font-size:0.88rem;line-height:1.75;">50,000+ vetted publisher sites across 20+ industries and dozens of countries — unmatched geographic and topical reach.</p></div>
+        <div class="value-card"><div class="value-icon"><i class="fas fa-pen-fancy"></i></div><h3 class="value-title">Editorial-Grade Content</h3><p style="color:#4a5568;font-size:0.88rem;line-height:1.75;">Every piece human-written, SEO-structured, and designed to add genuine value to the host publication — not just pass a link.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-24 px-6" style="background:#ede8df;">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16">
+        <span class="section-label">Our Process</span>
+        <h2 class="section-title">From Strategy Brief<br>to Live Link Delivery</h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-5">
+        <div class="step-card"><div class="step-num">01</div><div class="step-title">Audit</div><div class="step-desc">We review your site, goals, and existing backlink profile.</div></div>
+        <div class="step-card"><div class="step-num">02</div><div class="step-title">Strategy</div><div class="step-desc">Plan link types, anchor ratios, and target page priorities.</div></div>
+        <div class="step-card"><div class="step-num">03</div><div class="step-title">Outreach</div><div class="step-desc">Identify and secure quality publisher relationships.</div></div>
+        <div class="step-card"><div class="step-num">04</div><div class="step-title">Content</div><div class="step-desc">Write editorial-quality, SEO-structured articles.</div></div>
+        <div class="step-card"><div class="step-num">05</div><div class="step-title">Placement</div><div class="step-desc">Links placed live on indexed pages naturally.</div></div>
+        <div class="step-card"><div class="step-num">06</div><div class="step-title">Report</div><div class="step-desc">Full live URL delivery with placement details.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-24 px-6" style="background:#ede8df;">
+    <div class="max-w-7xl mx-auto">
+      <div style="background:#f8f5f0;border:1px solid rgba(27,67,50,0.12);border-radius:8px;padding:48px;">
+        <div class="grid lg:grid-cols-[260px_1fr] gap-12 items-center">
+          <div class="flex flex-col items-center gap-5">
+            <div class="founder-frame">
+              <img src="https://raw.githubusercontent.com/Nadeemmayo/offpageseoexpert.com/main/WhatsApp%20Image%202026-04-07%20at%205.28.39%20AM.jpeg" alt="Nadeem Mayo" style="width:100%;height:100%;object-fit:cover;object-position:top;">
+            </div>
+            <div class="founder-tag">Founder & Director</div>
+          </div>
+          <div>
+            <span class="section-label">The Person Behind Nexvio</span>
+            <h2 style="font-family:'Playfair Display',serif;font-size:2.8rem;font-weight:900;color:#1b4332;line-height:1.1;" class="mb-5">Nadeem Mayo</h2>
+            <p style="color:#4a5568;font-size:1rem;line-height:1.85;max-width:580px;" class="mb-8">With years of hands-on experience in authority link building, editorial outreach, and niche placement strategy, Nadeem built Nexvio to give global agencies and enterprise brands access to the same quality of SEO infrastructure previously only available to the largest players in the industry.</p>
+            <div class="flex flex-wrap gap-3 items-center">
+              <a href="https://www.linkedin.com/in/nadeemme" target="_blank" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+              <a href="https://www.facebook.com/share/19aDt6pcgh/" target="_blank" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+              <a href="https://wa.me/923074646927" target="_blank" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+              <a href="mailto:founder@nexvio.online" class="social-icon"><i class="fas fa-envelope"></i></a>
+              <a href="https://x.com/Nadeem_seo" target="_blank" class="social-icon"><i class="fab fa-x-twitter"></i></a>
+              <a href="contact.html" style="background:#d4a017;color:#1b4332;font-weight:700;font-size:12px;letter-spacing:1px;text-transform:uppercase;border-radius:4px;padding:12px 26px;display:inline-block;margin-left:8px;">Work With Nadeem</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section py-20 px-6">
+    <div class="max-w-5xl mx-auto text-center">
+      <p style="font-size:11px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:rgba(27,67,50,0.6);" class="mb-4">Ready to Scale?</p>
+      <h2 style="font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3.4rem);font-weight:900;color:#1b4332;line-height:1.15;" class="mb-6">Let's Build the Authority<br>Your Brand Deserves</h2>
+      <p style="color:rgba(27,67,50,0.72);font-size:1.05rem;max-width:580px;margin:0 auto 40px;">Share your website and goals. Nexvio will craft a precision authority strategy built around your targets.</p>
+      <div class="flex justify-center gap-4 flex-wrap">
+        <a href="contact.html" class="btn-dark">Contact Us Now</a>
+        <a href="inventory.html" class="btn-ivory">View Link Inventory</a>
+        <a href="FAQs.html" class="btn-ivory">Read FAQ</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="floating-contact">
+    <div class="contact-options" id="contactOpts">
+      <a href="https://wa.me/923074646927" target="_blank" class="float-btn" style="background:#25d366;"><i class="fab fa-whatsapp text-lg"></i></a>
+      <a href="mailto:founder@nexvio.online" class="float-btn" style="background:#ea4335;"><i class="fas fa-envelope text-lg"></i></a>
+      <a href="https://t.me/Nadeemmayos" target="_blank" class="float-btn" style="background:#0088cc;"><i class="fab fa-telegram-plane text-lg"></i></a>
+      <a href="https://www.linkedin.com/in/nadeemme" target="_blank" class="float-btn" style="background:#0a66c2;"><i class="fab fa-linkedin-in text-lg"></i></a>
+      <a href="https://x.com/Nadeem_seo" target="_blank" class="float-btn" style="background:#000;"><i class="fab fa-x-twitter text-lg"></i></a>
+    </div>
+    <div class="float-main" id="floatToggle"><i class="fas fa-comments text-xl"></i></div>
+  </div>
+
+  <footer class="footer pt-16 pb-8 px-6">
+    <div class="max-w-7xl mx-auto grid md:grid-cols-4 gap-10 pb-12" style="border-bottom:1px solid rgba(212,160,23,0.12);">
+      <div>
+        <a href="index.html" style="font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:900;color:#f8f5f0;" class="mb-4 block">NEX<span style="color:#d4a017;">VIO</span></a>
+        <p style="color:rgba(248,245,240,0.5);font-size:0.875rem;line-height:1.7;" class="mb-6">Your trusted partner for elite link building, editorial guest posting, and digital authority growth at scale.</p>
+        <div class="flex gap-3 mb-6">
+          <a href="https://www.linkedin.com/in/nadeemme" target="_blank" class="footer-social"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://wa.me/923074646927" target="_blank" class="footer-social"><i class="fab fa-whatsapp"></i></a>
+          <a href="https://t.me/Nadeemmayos" target="_blank" class="footer-social"><i class="fab fa-telegram"></i></a>
+          <a href="https://www.facebook.com/share/19aDt6pcgh/" target="_blank" class="footer-social"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://x.com/Nadeem_seo" target="_blank" class="footer-social"><i class="fab fa-x-twitter"></i></a>
+        </div>
+        <div class="flex gap-3">
+          <a href="https://www.fiverr.com/nadeem_mayo" target="_blank" style="background:#1dbf73;color:#fff;font-size:12px;font-weight:700;padding:8px 16px;border-radius:4px;">Fiverr</a>
+          <a href="https://upwork.com/freelancers/~01929269c0cf45d7c1" target="_blank" style="background:#14a800;color:#fff;font-size:12px;font-weight:700;padding:8px 16px;border-radius:4px;">Upwork</a>
+        </div>
+      </div>
+      <div>
+        <p class="footer-heading">Quick Links</p>
+        <a href="Services.html" class="footer-link">Services</a>
+        <a href="inventory.html" class="footer-link">Link Inventory</a>
+        <a href="premium-country-sites.html" class="footer-link">Country Sites</a>
+        <a href="all-niche-sites.html" class="footer-link">All Niches</a>
+        <a href="FAQs.html" class="footer-link">FAQ</a>
+        <a href="contact.html" class="footer-link">Order Now</a>
+      </div>
+      <div>
+        <p class="footer-heading">Legal</p>
+        <a href="privacy.html" class="footer-link">Privacy Policy</a>
+        <a href="terms.html" class="footer-link">Terms of Use</a>
+        <a href="refund.html" class="footer-link">Refund Policy</a>
+      </div>
+      <div>
+        <p class="footer-heading">Contact</p>
+        <p style="color:rgba(248,245,240,0.55);font-size:0.875rem;" class="mb-3"><i class="fas fa-envelope mr-2" style="color:#d4a017;"></i><a href="mailto:founder@nexvio.online" style="color:inherit;">founder@nexvio.online</a></p>
+        <p style="color:rgba(248,245,240,0.55);font-size:0.875rem;" class="mb-8"><i class="fab fa-whatsapp mr-2" style="color:#d4a017;"></i><a href="https://wa.me/923074646927" target="_blank" style="color:inherit;">+92 307 4646927</a></p>
+        <p style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(248,245,240,0.35);" class="mb-3">We Accept</p>
+        <div class="flex flex-wrap gap-3 items-center">
+          <img src="https://img.icons8.com/color/96/paypal.png" alt="PayPal" style="height:26px;">
+          <img src="https://img.icons8.com/color/96/payoneer.png" alt="Payoneer" style="height:26px;">
+          <img src="https://img.icons8.com/color/96/visa.png" alt="Visa" style="height:22px;">
+          <img src="https://img.icons8.com/color/96/mastercard-logo.png" alt="Mastercard" style="height:26px;">
+        </div>
+      </div>
+    </div>
+    <p style="text-align:center;color:rgba(248,245,240,0.3);font-size:0.8rem;" class="mt-8">© 2026 Nexvio Digital Authority Agency. All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    document.getElementById('mobileBtn').addEventListener('click', function() {
+      document.getElementById('mobileMenu').classList.toggle('active');
+    });
+    document.getElementById('floatToggle').addEventListener('click', function() {
+      var opts = document.getElementById('contactOpts');
+      opts.style.display = opts.style.display === 'flex' ? 'none' : 'flex';
+    });
+  </script>
+</body>
+</html>
