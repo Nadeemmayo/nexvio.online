@@ -3,251 +3,160 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SEO Audit Report — Nexvio</title>
+<link rel="canonical" href="https://nexvio.online/seo-audit.html">
+<title>SEO Audit Report | Nexvio</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --navy: #1F3A5F;
-    --navy-dark: #142944;
-    --accent: #C9A05C;
-    --bg: #F6F4EF;
-    --card-bg: #FFFFFF;
-    --text: #232323;
-    --text-muted: #6B6B6B;
-    --border: #E3DFD6;
-    --error: #B3433D;
-  }
-
-  * { box-sizing: border-box; }
-
-  body {
-    margin: 0;
-    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    line-height: 1.5;
-  }
-
-  .wrap {
-    max-width: 720px;
-    margin: 0 auto;
-    padding: 48px 24px 80px;
-  }
-
-  .eyebrow {
-    font-size: 13px;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--accent);
-    font-weight: 600;
-    margin-bottom: 10px;
-  }
-
-  h1 {
-    font-size: 34px;
-    color: var(--navy);
-    margin: 0 0 12px;
-    font-weight: 700;
-    letter-spacing: -0.01em;
-  }
-
-  .subtitle {
-    color: var(--text-muted);
-    font-size: 16px;
-    margin-bottom: 36px;
-    max-width: 540px;
-  }
-
-  .card {
-    background: var(--card-bg);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 32px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
-  }
-
-  label {
-    display: block;
-    font-size: 13px;
-    font-weight: 600;
-    color: var(--navy);
-    margin-bottom: 6px;
-    margin-top: 20px;
-  }
-
-  label:first-of-type { margin-top: 0; }
-
-  .hint {
-    font-size: 12px;
-    color: var(--text-muted);
-    margin-top: 4px;
-  }
-
-  input[type="text"], input[type="url"] {
-    width: 100%;
-    padding: 12px 14px;
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    font-size: 15px;
-    color: var(--text);
-    background: #FCFBF9;
-    transition: border-color 0.15s ease;
-  }
-
-  input:focus {
-    outline: none;
-    border-color: var(--navy);
-  }
-
-  button {
-    width: 100%;
-    margin-top: 28px;
-    padding: 14px 20px;
-    background: var(--navy);
-    color: #fff;
-    border: none;
-    border-radius: 6px;
-    font-size: 15px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background 0.15s ease;
-  }
-
-  button:hover:not(:disabled) { background: var(--navy-dark); }
-
-  button:disabled {
-    background: #9AA5B1;
-    cursor: not-allowed;
-  }
-
-  .status {
-    margin-top: 18px;
-    font-size: 14px;
-    text-align: center;
-    min-height: 20px;
-  }
-
-  .status.error { color: var(--error); }
-  .status.loading { color: var(--text-muted); }
-  .status.success { color: #2E7D32; }
-
-  .spinner {
-    display: inline-block;
-    width: 14px;
-    height: 14px;
-    border: 2px solid #D8DEE6;
-    border-top-color: var(--navy);
-    border-radius: 50%;
-    animation: spin 0.8s linear infinite;
-    vertical-align: middle;
-    margin-right: 8px;
-  }
-
-  @keyframes spin { to { transform: rotate(360deg); } }
-
-  .footnote {
-    margin-top: 22px;
-    font-size: 12.5px;
-    color: var(--text-muted);
-    text-align: center;
-  }
-
-  .config-note {
-    background: #FBF6E9;
-    border: 1px solid #E8D9A8;
-    border-radius: 6px;
-    padding: 10px 14px;
-    font-size: 12.5px;
-    color: #6B5A20;
-    margin-bottom: 28px;
-  }
+body{margin:0;font-family:Inter,sans-serif;background:#f8f5f0;color:#1a1a2e}
+.navbar{background:#1b4332;border-bottom:1px solid rgba(212,160,23,.25)}
+.nav-link{color:rgba(248,245,240,.78);font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase}
+.nav-link:hover,.nav-link.active{color:#d4a017}
+.nav-cta{background:#d4a017;color:#1b4332;font-weight:800;font-size:12px;letter-spacing:1px;text-transform:uppercase;border-radius:4px;padding:10px 22px}
+.hero{background:linear-gradient(160deg,#1b4332 0%,#2d6a4f 60%,#1b4332 100%);padding:80px 24px}
+.badge{display:inline-block;border:1px solid rgba(212,160,23,.5);color:#d4a017;font-size:11px;font-weight:800;letter-spacing:4px;text-transform:uppercase;padding:8px 22px;margin-bottom:24px}
+h1{font-family:'Playfair Display',serif;font-size:clamp(2.5rem,5vw,4.8rem);font-weight:900;line-height:1.1;color:#f8f5f0}
+.gold{color:#d4a017}
+.sub{color:rgba(248,245,240,.75);font-size:1rem;line-height:1.8;max-width:680px}
+.section{padding:70px 24px}
+.card{max-width:760px;margin:auto;background:#fff;border:1px solid rgba(27,67,50,.12);border-radius:12px;padding:34px;box-shadow:0 20px 60px rgba(27,67,50,.10)}
+label{display:block;margin-top:20px;margin-bottom:7px;font-size:13px;font-weight:800;color:#1b4332;text-transform:uppercase;letter-spacing:.8px}
+label:first-child{margin-top:0}
+input{width:100%;padding:14px;border:1px solid #ddd6c8;border-radius:7px;background:#fcfbf9;font-size:15px}
+input:focus{outline:none;border-color:#d4a017}
+.hint{font-size:12px;color:#6b7280;margin-top:5px}
+button{width:100%;margin-top:28px;background:#d4a017;color:#1b4332;border:0;border-radius:7px;padding:15px 20px;font-size:14px;font-weight:900;text-transform:uppercase;letter-spacing:1px;cursor:pointer}
+button:hover:not(:disabled){background:#b8960c}
+button:disabled{opacity:.6;cursor:not-allowed}
+.status{margin-top:18px;text-align:center;font-size:14px;min-height:20px}
+.error{color:#b3433d}.success{color:#2e7d32}.loading{color:#4a5568}
+.spinner{display:inline-block;width:14px;height:14px;border:2px solid #ddd;border-top-color:#1b4332;border-radius:50%;animation:spin .8s linear infinite;margin-right:8px;vertical-align:middle}
+@keyframes spin{to{transform:rotate(360deg)}}
+.footnote{max-width:760px;margin:24px auto 0;text-align:center;color:#6b7280;font-size:13px}
+.mobile-menu{display:none;background:#1b4332;padding:16px 24px}
+.mobile-menu.active{display:block}
+.mobile-menu a{display:block;color:rgba(248,245,240,.8);font-size:12px;font-weight:700;text-transform:uppercase;padding:11px 0;border-bottom:1px solid rgba(248,245,240,.08)}
+@media(max-width:768px){.desktop-menu{display:none!important}}
 </style>
 </head>
 <body>
-  <div class="wrap">
-    <div class="eyebrow">Nexvio Tools</div>
-    <h1>SEO Audit Report</h1>
-    <p class="subtitle">Enter a client website and, optionally, a competitor's website. We'll scan both for Technical SEO and On-Page SEO issues and generate a professional PDF report you can download or send straight to your client.</p>
 
-    <div class="config-note" id="configNote">
-      ⚠️ Backend not connected yet — open this file and replace <code>API_BASE_URL</code> near the bottom with your Render.com URL.
+<nav class="navbar sticky top-0 z-50">
+  <div class="max-w-7xl mx-auto flex justify-between items-center px-6 py-4">
+    <a href="index.html" style="font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:900;color:#f8f5f0;text-decoration:none;">NEX<span style="color:#d4a017;">VIO</span></a>
+    <div class="desktop-menu hidden md:flex gap-6 items-center">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="about.html" class="nav-link">About</a>
+      <a href="services.html" class="nav-link">Services</a>
+      <a href="portfolio.html" class="nav-link">Portfolio</a>
+      <a href="inventory.html" class="nav-link">Inventory</a>
+      <a href="premium-country-sites.html" class="nav-link">Country Sites</a>
+      <a href="all-niches-sites.html" class="nav-link">All Niches</a>
+      <a href="blog.html" class="nav-link">Blog</a>
+      <a href="FAQs.html" class="nav-link">FAQ</a>
+      <a href="seo-audit.html" class="nav-link active">Audit Report</a>
+      <a href="contact.html" class="nav-cta">Get Started</a>
     </div>
+    <button type="button" id="mobileBtn" style="width:auto;margin:0;background:transparent;color:#f8f5f0;font-size:26px;padding:0;">☰</button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="services.html">Services</a>
+    <a href="portfolio.html">Portfolio</a>
+    <a href="inventory.html">Inventory</a>
+    <a href="premium-country-sites.html">Country Sites</a>
+    <a href="all-niches-sites.html">All Niches</a>
+    <a href="blog.html">Blog</a>
+    <a href="FAQs.html">FAQ</a>
+    <a href="seo-audit.html">Audit Report</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</nav>
 
-    <div class="card">
-      <form id="auditForm">
-        <label for="clientUrl">Client website</label>
-        <input type="url" id="clientUrl" placeholder="https://clientwebsite.com" required>
-        <div class="hint">Include https:// at the start.</div>
+<header class="hero">
+  <div class="max-w-7xl mx-auto">
+    <span class="badge">Nexvio SEO Tool</span>
+    <h1>Professional <span class="gold">SEO Audit</span><br>Report Generator</h1>
+    <p class="sub mt-6">Enter a client website and optionally a competitor website. Nexvio will scan Technical SEO and On-Page SEO signals and generate a professional PDF report for your client.</p>
+  </div>
+</header>
 
-        <label for="competitorUrl">Competitor website (optional)</label>
-        <input type="url" id="competitorUrl" placeholder="https://competitorwebsite.com">
-        <div class="hint">Leave blank to audit only the client site.</div>
+<section class="section">
+  <div class="card">
+    <form id="auditForm">
+      <label for="clientUrl">Client Website</label>
+      <input type="url" id="clientUrl" placeholder="https://clientwebsite.com" required>
+      <div class="hint">Include https:// at the start.</div>
 
-        <button type="submit" id="submitBtn">Generate PDF Report</button>
-        <div class="status" id="statusMsg"></div>
-      </form>
-    </div>
+      <label for="competitorUrl">Competitor Website Optional</label>
+      <input type="url" id="competitorUrl" placeholder="https://competitorwebsite.com">
+      <div class="hint">Leave blank to audit only the client site.</div>
 
-    <p class="footnote">Reports cover Technical SEO (HTTPS, speed, robots.txt, sitemap, mobile-friendliness) and On-Page SEO (titles, meta descriptions, headings, images, content length, links).</p>
+      <button type="submit" id="submitBtn">Generate PDF Report</button>
+      <div class="status" id="statusMsg"></div>
+    </form>
   </div>
 
-  <script>
-    // ===== SET THIS to your Railway.app backend URL =====
-    const API_BASE_URL = 'https://nexvioonline-production.up.railway.app';
-    // Example: 'https://nexvio-seo-audit.onrender.com'
+  <p class="footnote">Reports cover HTTPS, speed, robots.txt, sitemap, mobile-friendliness, titles, meta descriptions, headings, images, content length and internal/external links.</p>
+</section>
 
-    const form = document.getElementById('auditForm');
-    const statusMsg = document.getElementById('statusMsg');
-    const submitBtn = document.getElementById('submitBtn');
-    const configNote = document.getElementById('configNote');
+<script>
+const API_BASE_URL = 'https://nexvioonline-production.up.railway.app';
 
-    if (!API_BASE_URL.includes('your-app-name')) {
-      configNote.style.display = 'none';
+document.getElementById('mobileBtn').addEventListener('click', function(){
+  document.getElementById('mobileMenu').classList.toggle('active');
+});
+
+const form = document.getElementById('auditForm');
+const statusMsg = document.getElementById('statusMsg');
+const submitBtn = document.getElementById('submitBtn');
+
+form.addEventListener('submit', async function(e){
+  e.preventDefault();
+
+  const clientUrl = document.getElementById('clientUrl').value.trim();
+  const competitorUrl = document.getElementById('competitorUrl').value.trim();
+
+  submitBtn.disabled = true;
+  statusMsg.className = 'status loading';
+  statusMsg.innerHTML = '<span class="spinner"></span>Scanning website. Please wait 10-30 seconds...';
+
+  try {
+    const response = await fetch(`${API_BASE_URL}/api/audit`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        client_url: clientUrl,
+        competitor_url: competitorUrl || undefined
+      })
+    });
+
+    if (!response.ok) {
+      const errData = await response.json().catch(() => ({}));
+      throw new Error(errData.error || `Server error (${response.status})`);
     }
 
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
+    const blob = await response.blob();
+    const downloadUrl = window.URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = downloadUrl;
+    a.download = 'seo-audit-report.pdf';
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    window.URL.revokeObjectURL(downloadUrl);
 
-      const clientUrl = document.getElementById('clientUrl').value.trim();
-      const competitorUrl = document.getElementById('competitorUrl').value.trim();
+    statusMsg.className = 'status success';
+    statusMsg.textContent = 'Report downloaded successfully.';
+  } catch (err) {
+    statusMsg.className = 'status error';
+    statusMsg.textContent = err.message || 'Something went wrong. Please try again.';
+  } finally {
+    submitBtn.disabled = false;
+  }
+});
+</script>
 
-      submitBtn.disabled = true;
-      statusMsg.className = 'status loading';
-      statusMsg.innerHTML = '<span class="spinner"></span>Scanning website(s) — this can take 10-30 seconds...';
-
-      try {
-        const response = await fetch(`${API_BASE_URL}/api/audit`, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            client_url: clientUrl,
-            competitor_url: competitorUrl || undefined
-          })
-        });
-
-        if (!response.ok) {
-          const errData = await response.json().catch(() => ({}));
-          throw new Error(errData.error || `Server error (${response.status})`);
-        }
-
-        const blob = await response.blob();
-        const downloadUrl = window.URL.createObjectURL(blob);
-        const a = document.createElement('a');
-        a.href = downloadUrl;
-        a.download = 'seo-audit-report.pdf';
-        document.body.appendChild(a);
-        a.click();
-        a.remove();
-        window.URL.revokeObjectURL(downloadUrl);
-
-        statusMsg.className = 'status success';
-        statusMsg.textContent = 'Report downloaded successfully.';
-      } catch (err) {
-        statusMsg.className = 'status error';
-        statusMsg.textContent = err.message || 'Something went wrong. Please try again.';
-      } finally {
-        submitBtn.disabled = false;
-      }
-    });
-  </script>
 </body>
 </html>
