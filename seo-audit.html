@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SEO Audit Report — Nexvio</title>
+<style>
+  :root {
+    --navy: #1F3A5F;
+    --navy-dark: #142944;
+    --accent: #C9A05C;
+    --bg: #F6F4EF;
+    --card-bg: #FFFFFF;
+    --text: #232323;
+    --text-muted: #6B6B6B;
+    --border: #E3DFD6;
+    --error: #B3433D;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.5;
+  }
+
+  .wrap {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 48px 24px 80px;
+  }
+
+  .eyebrow {
+    font-size: 13px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+
+  h1 {
+    font-size: 34px;
+    color: var(--navy);
+    margin: 0 0 12px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+
+  .subtitle {
+    color: var(--text-muted);
+    font-size: 16px;
+    margin-bottom: 36px;
+    max-width: 540px;
+  }
+
+  .card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 32px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  }
+
+  label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 6px;
+    margin-top: 20px;
+  }
+
+  label:first-of-type { margin-top: 0; }
+
+  .hint {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-top: 4px;
+  }
+
+  input[type="text"], input[type="url"] {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    font-size: 15px;
+    color: var(--text);
+    background: #FCFBF9;
+    transition: border-color 0.15s ease;
+  }
+
+  input:focus {
+    outline: none;
+    border-color: var(--navy);
+  }
+
+  button {
+    width: 100%;
+    margin-top: 28px;
+    padding: 14px 20px;
+    background: var(--navy);
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.15s ease;
+  }
+
+  button:hover:not(:disabled) { background: var(--navy-dark); }
+
+  button:disabled {
+    background: #9AA5B1;
+    cursor: not-allowed;
+  }
+
+  .status {
+    margin-top: 18px;
+    font-size: 14px;
+    text-align: center;
+    min-height: 20px;
+  }
+
+  .status.error { color: var(--error); }
+  .status.loading { color: var(--text-muted); }
+  .status.success { color: #2E7D32; }
+
+  .spinner {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    border: 2px solid #D8DEE6;
+    border-top-color: var(--navy);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+    vertical-align: middle;
+    margin-right: 8px;
+  }
+
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  .footnote {
+    margin-top: 22px;
+    font-size: 12.5px;
+    color: var(--text-muted);
+    text-align: center;
+  }
+
+  .config-note {
+    background: #FBF6E9;
+    border: 1px solid #E8D9A8;
+    border-radius: 6px;
+    padding: 10px 14px;
+    font-size: 12.5px;
+    color: #6B5A20;
+    margin-bottom: 28px;
+  }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="eyebrow">Nexvio Tools</div>
+    <h1>SEO Audit Report</h1>
+    <p class="subtitle">Enter a client website and, optionally, a competitor's website. We'll scan both for Technical SEO and On-Page SEO issues and generate a professional PDF report you can download or send straight to your client.</p>
+
+    <div class="config-note" id="configNote">
+      ⚠️ Backend not connected yet — open this file and replace <code>API_BASE_URL</code> near the bottom with your Render.com URL.
+    </div>
+
+    <div class="card">
+      <form id="auditForm">
+        <label for="clientUrl">Client website</label>
+        <input type="url" id="clientUrl" placeholder="https://clientwebsite.com" required>
+        <div class="hint">Include https:// at the start.</div>
+
+        <label for="competitorUrl">Competitor website (optional)</label>
+        <input type="url" id="competitorUrl" placeholder="https://competitorwebsite.com">
+        <div class="hint">Leave blank to audit only the client site.</div>
+
+        <button type="submit" id="submitBtn">Generate PDF Report</button>
+        <div class="status" id="statusMsg"></div>
+      </form>
+    </div>
+
+    <p class="footnote">Reports cover Technical SEO (HTTPS, speed, robots.txt, sitemap, mobile-friendliness) and On-Page SEO (titles, meta descriptions, headings, images, content length, links).</p>
+  </div>
+
+  <script>
+    // ===== SET THIS to your Render.com backend URL after deploying it there =====
+    const API_BASE_URL = 'https://your-app-name.onrender.com';
+    // Example: 'https://nexvio-seo-audit.onrender.com'
+
+    const form = document.getElementById('auditForm');
+    const statusMsg = document.getElementById('statusMsg');
+    const submitBtn = document.getElementById('submitBtn');
+    const configNote = document.getElementById('configNote');
+
+    if (!API_BASE_URL.includes('your-app-name')) {
+      configNote.style.display = 'none';
+    }
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const clientUrl = document.getElementById('clientUrl').value.trim();
+      const competitorUrl = document.getElementById('competitorUrl').value.trim();
+
+      submitBtn.disabled = true;
+      statusMsg.className = 'status loading';
+      statusMsg.innerHTML = '<span class="spinner"></span>Scanning website(s) — this can take 10-30 seconds...';
+
+      try {
+        const response = await fetch(`${API_BASE_URL}/api/audit`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            client_url: clientUrl,
+            competitor_url: competitorUrl || undefined
+          })
+        });
+
+        if (!response.ok) {
+          const errData = await response.json().catch(() => ({}));
+          throw new Error(errData.error || `Server error (${response.status})`);
+        }
+
+        const blob = await response.blob();
+        const downloadUrl = window.URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = downloadUrl;
+        a.download = 'seo-audit-report.pdf';
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+        window.URL.revokeObjectURL(downloadUrl);
+
+        statusMsg.className = 'status success';
+        statusMsg.textContent = 'Report downloaded successfully.';
+      } catch (err) {
+        statusMsg.className = 'status error';
+        statusMsg.textContent = err.message || 'Something went wrong. Please try again.';
+      } finally {
+        submitBtn.disabled = false;
+      }
+    });
+  </script>
+</body>
+</html>
