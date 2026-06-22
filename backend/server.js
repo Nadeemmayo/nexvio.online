@@ -377,7 +377,85 @@ app.post('/api/audit', async (req, res) => {
 app.get('/api/health', (req, res) => {
   res.json({ status: 'ok' });
 });
+const dns = require('dns').promises;
 
+const disposableDomains = [
+  'mailinator.com',
+  '10minutemail.com',
+  'tempmail.com',
+  'guerrillamail.com',
+  'yopmail.com'
+];
+
+const roleBasedPrefixes = [
+  'admin',
+  'info',
+  'support',
+  'sales',
+  'contact',
+  'hello',
+  'team',
+  'office'
+];
+
+app.post('/api/verify-emails', async (req, res) => {
+  try {
+    const emails = Array.isArray(req.body.emails) ? req.body.emails : [];
+
+    if (!emails.length) {
+      return res.status(400).json({ error: 'No emails provided' });
+    }
+
+    if (emails.length > 25) {
+      return res.status(400).json({ error: 'Maximum 25 emails allowed per check' });
+    }
+
+    const results = await Promise.all(emails.map(async (email) => {
+      email = String(email).trim().toLowerCase();
+
+      const formatValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+      const domain = formatValid ? email.split('@')[1] : '';
+      const local = formatValid ? email.split('@')[0] : '';
+
+      let mxValid = false;
+      let mxRecords = [];
+
+      if (formatValid) {
+        try {
+          mxRecords = await dns.resolveMx(domain);
+          mxValid = mxRecords && mxRecords.length > 0;
+        } catch (e) {
+          mxValid = false;
+        }
+      }
+
+      const isDisposable = disposableDomains.includes(domain);
+      const isRoleBased = roleBasedPrefixes.includes(local);
+
+      let status = 'Invalid';
+
+      if (formatValid && mxValid && !isDisposable) {
+        status = 'Valid';
+      } else if (formatValid && !mxValid) {
+        status = 'Risky';
+      }
+
+      return {
+        email,
+        formatValid,
+        domain,
+        mxValid,
+        isDisposable,
+        isRoleBased,
+        status
+      };
+    }));
+
+    res.json({ total: results.length, results });
+  } catch (err) {
+    res.status(500).json({ error: 'Email verification failed' });
+  }
+});
 app.listen(PORT, () => {
   console.log(`SEO Audit tool running on port ${PORT}`);
 });
