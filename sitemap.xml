@@ -1,22 +1,72 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
-  <url><loc>https://nexvio.online/</loc></url>
-  <url><loc>https://nexvio.online/index.html</loc></url>
-  <url><loc>https://nexvio.online/about.html</loc></url>
-  <url><loc>https://nexvio.online/services.html</loc></url>
-  <url><loc>https://nexvio.online/portfolio.html</loc></url>
-  <url><loc>https://nexvio.online/inventory.html</loc></url>
-  <url><loc>https://nexvio.online/premium-country-sites.html</loc></url>
-  <url><loc>https://nexvio.online/all-niches-sites.html</loc></url>
-  <url><loc>https://nexvio.online/blog.html</loc></url>
-  <url><loc>https://nexvio.online/blog-post-1.html</loc></url>
-  <url><loc>https://nexvio.online/blog-post-2.html</loc></url>
-  <url><loc>https://nexvio.online/blog-post-3.html</loc></url>
-  <url><loc>https://nexvio.online/contact.html</loc></url>
-  <url><loc>https://nexvio.online/FAQs.html</loc></url>
-  <url><loc>https://nexvio.online/privacy-policy.html</loc></url>
-  <url><loc>https://nexvio.online/refund-policy.html</loc></url>
-  <url><loc>https://nexvio.online/terms-of-use.html</loc></url>
+  <url>
+    <loc>https://nexvio.online/</loc>
+  </url>
+
+  <url>
+    <loc>https://nexvio.online/index.html</loc>
+  </url>
+
+  <url>
+    <loc>https://nexvio.online/about.html</loc>
+  </url>
+
+  <url>
+    <loc>https://nexvio.online/services.html</loc>
+  </url>
+
+  <url>
+    <loc>https://nexvio.online/portfolio.html</loc>
+  </url>
+
+  <url>
+    <loc>https://nexvio.online/inventory.html</loc>
+  </url>
+
+  <url>
+    <loc>https://nexvio.online/premium-country-sites.html</loc>
+  </url>
+
+  <url>
+    <loc>https://nexvio.online/all-niches-sites.html</loc>
+  </url>
+
+  <url>
+    <loc>https://nexvio.online/blog.html</loc>
+  </url>
+
+  <url>
+    <loc>https://nexvio.online/blog-post-1.html</loc>
+  </url>
+
+  <url>
+    <loc>https://nexvio.online/blog-post-2.html</loc>
+  </url>
+
+  <url>
+    <loc>https://nexvio.online/blog-post-3.html</loc>
+  </url>
+
+  <url>
+    <loc>https://nexvio.online/contact.html</loc>
+  </url>
+
+  <url>
+    <loc>https://nexvio.online/FAQs.html</loc>
+  </url>
+
+  <url>
+    <loc>https://nexvio.online/privacy.html</loc>
+  </url>
+
+  <url>
+    <loc>https://nexvio.online/refund.html</loc>
+  </url>
+
+  <url>
+    <loc>https://nexvio.online/terms.html</loc>
+  </url>
 
 </urlset>
