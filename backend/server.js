@@ -161,7 +161,7 @@ function fetchExtra(baseUrl, path) {
       res.on('end', () => resolve({ exists: res.statusCode === 200, content: data }));
     });
     req.on('error', () => resolve({ exists: false }));
-    req.on('timeout', () => { req.destroy(); resolve({ exists: false })); });
+    req.on('timeout', () => { req.destroy(); resolve({ exists: false }); });
   });
 }
 
