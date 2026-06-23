@@ -56,7 +56,6 @@ body {
 .brand-name {
   font-family: 'Montserrat', sans-serif;
   font-size: 20px; font-weight: 900; color: var(--white);
-  letter-spacing: -0.5px;
 }
 .brand-name span { color: var(--yellow); }
 .nav-links { display: flex; gap: 28px; align-items: center; }
@@ -72,26 +71,17 @@ body {
   padding: 8px 18px; border-radius: 6px;
   font-weight: 700 !important;
 }
-.nav-btn:hover { background: var(--yellow2) !important; color: #061209 !important; }
 
 .hero {
   background: linear-gradient(135deg, #061a0a 0%, #0d2a10 50%, #061a0a 100%);
   text-align: center;
   padding: 70px 20px 50px;
   border-bottom: 1px solid var(--border);
-  position: relative; overflow: hidden;
-}
-.hero::before {
-  content: '';
-  position: absolute; top: 0; left: 0; right: 0; bottom: 0;
-  background: radial-gradient(ellipse at 50% 0%, rgba(245,166,35,0.07) 0%, transparent 65%);
-  pointer-events: none;
 }
 .hero-badge {
   display: inline-flex; align-items: center; gap: 7px;
   background: rgba(245,166,35,0.1); border: 1px solid rgba(245,166,35,0.3);
   color: var(--yellow); font-size: 11px; font-weight: 700;
-  letter-spacing: 1.5px; text-transform: uppercase;
   padding: 7px 16px; border-radius: 99px;
   margin-bottom: 24px;
 }
@@ -103,15 +93,13 @@ body {
   text-transform: uppercase;
 }
 .hero h1 span { color: var(--yellow); }
-.hero-sub { color: var(--slate); font-size: 15px; max-width: 520px; margin: 0 auto 32px; line-height: 1.7; }
+.hero-sub { color: var(--slate); font-size: 15px; max-width: 520px; margin: 0 auto 32px; }
 .feature-pills { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
 .fpill {
   background: rgba(255,255,255,0.04); border: 1px solid var(--border2);
   border-radius: 99px; padding: 7px 16px;
   font-size: 12px; color: var(--slate);
-  display: flex; align-items: center; gap: 6px;
 }
-.fpill b { color: var(--text); }
 
 .wrap { max-width: 880px; margin: 0 auto; padding: 40px 20px 80px; }
 
@@ -142,7 +130,7 @@ textarea {
   font-size: 13px; line-height: 1.9;
   padding: 16px 18px;
   resize: vertical; min-height: 160px;
-  outline: none; transition: border-color 0.2s;
+  outline: none;
 }
 textarea:focus { border-color: var(--yellow); }
 textarea::placeholder { color: #2a4a30; }
@@ -159,11 +147,9 @@ textarea::placeholder { color: #2a4a30; }
   font-family: 'Montserrat', sans-serif;
   font-size: 15px; font-weight: 800;
   border: none; border-radius: 10px;
-  cursor: pointer; text-transform: uppercase; letter-spacing: 0.5px;
-  transition: background 0.2s, transform 0.15s;
+  cursor: pointer; text-transform: uppercase;
 }
-.btn-verify:hover:not(:disabled) { background: var(--yellow2); transform: translateY(-1px); }
-.btn-verify:disabled { opacity: 0.4; cursor: not-allowed; transform: none; }
+.btn-verify:disabled { opacity: 0.4; cursor: not-allowed; }
 
 .progress-wrap { display: none; margin-top: 20px; }
 .prog-bar-bg { height: 5px; background: var(--border2); border-radius: 99px; overflow: hidden; }
@@ -180,61 +166,52 @@ textarea::placeholder { color: #2a4a30; }
   display: grid; grid-template-columns: repeat(5, 1fr);
   gap: 12px; margin-bottom: 24px;
 }
-@media(max-width:600px){ .stats-grid { grid-template-columns: repeat(3,1fr); } }
-
 .sbox {
   background: var(--bg2); border: 1px solid var(--border2);
   border-radius: 12px; padding: 16px 10px; text-align: center;
 }
-.sbox .snum { font-family: 'Montserrat', sans-serif; font-size: 30px; font-weight: 900; line-height: 1; }
-.sbox .slbl { font-size: 10px; text-transform: uppercase; letter-spacing: 1px; color: var(--slate); margin-top: 6px; }
-.sbox.s-total .snum   { color: var(--white); }
-.sbox.s-valid .snum   { color: var(--green-light); }
-.sbox.s-invalid .snum { color: var(--red); }
-.sbox.s-catchall .snum{ color: var(--amber); }
-.sbox.s-unknown .snum { color: var(--slate); }
+.sbox .snum { font-family: 'Montserrat', sans-serif; font-size: 30px; font-weight: 900; }
+.sbox .slbl { font-size: 10px; text-transform: uppercase; color: var(--slate); }
+.s-total .snum { color: var(--white); }
+.s-valid .snum { color: var(--green-light); }
+.s-invalid .snum { color: var(--red); }
+.s-catchall .snum { color: var(--amber); }
+.s-unknown .snum { color: var(--slate); }
 
 .actions { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 20px; }
 .btn-act {
-  display: flex; align-items: center; gap: 7px;
   padding: 9px 18px; border-radius: 8px;
   font-size: 12px; font-weight: 700;
   border: 1.5px solid; cursor: pointer;
-  transition: background 0.18s; background: transparent;
-  font-family: 'Inter', sans-serif;
+  background: transparent;
 }
-.btn-copy-all   { border-color: var(--yellow); color: var(--yellow); }
-.btn-copy-all:hover { background: rgba(245,166,35,0.08); }
-.btn-dl-csv     { border-color: var(--green-light); color: var(--green-light); }
-.btn-dl-csv:hover { background: rgba(46,204,113,0.08); }
+.btn-copy-all { border-color: var(--yellow); color: var(--yellow); }
+.btn-dl-csv { border-color: var(--green-light); color: var(--green-light); }
 .btn-valid-only { border-color: var(--slate); color: var(--slate); }
-.btn-valid-only:hover { border-color: var(--white); color: var(--white); }
 
 .tbl-wrap { overflow-x: auto; border-radius: 10px; border: 1px solid var(--border2); }
 table { width: 100%; border-collapse: collapse; font-size: 12.5px; }
 thead th {
   background: var(--bg2); padding: 11px 14px; text-align: left;
   font-size: 10px; font-weight: 700; text-transform: uppercase;
-  letter-spacing: 1.2px; color: var(--slate);
-  border-bottom: 1px solid var(--border2); white-space: nowrap;
+  color: var(--slate);
+  border-bottom: 1px solid var(--border2);
 }
-tbody tr { border-bottom: 1px solid #0f2214; transition: background 0.12s; }
-tbody tr:last-child { border-bottom: none; }
-tbody tr:hover { background: rgba(255,255,255,0.02); }
+tbody tr { border-bottom: 1px solid #0f2214; }
 td { padding: 10px 14px; vertical-align: middle; }
 .td-num { color: #2a4a30; font-size: 11px; width: 36px; }
-.td-email { font-family: monospace; font-size: 12px; color: #9abfa0; max-width: 230px; word-break: break-all; }
+.td-email { font-family: monospace; font-size: 12px; color: #9abfa0; word-break: break-all; }
 
 .pill {
   display: inline-flex; align-items: center; gap: 4px;
   padding: 4px 10px; border-radius: 99px;
   font-size: 10px; font-weight: 700;
-  letter-spacing: 0.3px; white-space: nowrap;
+  white-space: nowrap;
 }
-.pill-valid    { background:rgba(46,204,113,0.12); color:#2ecc71; border:1px solid rgba(46,204,113,0.25); }
-.pill-invalid  { background:rgba(231,76,60,0.12);  color:#e74c3c; border:1px solid rgba(231,76,60,0.25); }
+.pill-valid { background:rgba(46,204,113,0.12); color:#2ecc71; border:1px solid rgba(46,204,113,0.25); }
+.pill-invalid { background:rgba(231,76,60,0.12); color:#e74c3c; border:1px solid rgba(231,76,60,0.25); }
 .pill-catchall { background:rgba(243,156,18,0.12); color:#f39c12; border:1px solid rgba(243,156,18,0.25); }
-.pill-unknown  { background:rgba(122,158,130,0.12);color:#7a9e82; border:1px solid rgba(122,158,130,0.25); }
+.pill-unknown { background:rgba(122,158,130,0.12); color:#7a9e82; border:1px solid rgba(122,158,130,0.25); }
 .pill-checking { background:rgba(245,166,35,0.08); color:#f5a623; border:1px solid rgba(245,166,35,0.2); }
 
 .toast {
@@ -244,11 +221,11 @@ td { padding: 10px 14px; vertical-align: middle; }
   padding: 11px 26px; border-radius: 99px;
   font-size: 13px; font-weight: 800;
   opacity: 0; transition: all 0.3s;
-  pointer-events: none; z-index: 999; white-space: nowrap;
+  pointer-events: none; z-index: 999;
 }
 .toast.show { opacity:1; transform: translateX(-50%) translateY(0); }
 
-.footnote { text-align: center; color: var(--slate); font-size: 11.5px; margin-top: 16px; line-height: 1.8; }
+.footnote { text-align: center; color: var(--slate); font-size: 11.5px; margin-top: 16px; }
 
 footer {
   border-top: 1px solid var(--border);
@@ -261,6 +238,7 @@ footer a { color: var(--yellow); text-decoration: none; }
   .topbar { padding: 0 20px; }
   .nav-links { display: none; }
   .card { padding: 20px 16px; }
+  .stats-grid { grid-template-columns: repeat(2,1fr); }
 }
 </style>
 </head>
@@ -283,29 +261,26 @@ footer a { color: var(--yellow); text-decoration: none; }
 <div class="hero">
   <div class="hero-badge">✉️ Free Tool</div>
   <h1>Bulk Email<br><span>Verification Tool</span></h1>
-  <p class="hero-sub">Paste up to 25 emails and instantly check Format, MX Records, SMTP status and deliverability — 100% free.</p>
+  <p class="hero-sub">Paste up to 25 emails and instantly check Format, MX Records, SMTP status and deliverability.</p>
   <div class="feature-pills">
-    <div class="fpill">✅ <b>Format</b> Validation</div>
-    <div class="fpill">🌐 <b>MX</b> Records Check</div>
-    <div class="fpill">📡 <b>SMTP</b> Verification</div>
-    <div class="fpill">🔁 <b>Duplicate</b> Removal</div>
-    <div class="fpill">⬇️ <b>CSV</b> Download</div>
+    <div class="fpill">✅ Format Validation</div>
+    <div class="fpill">🌐 MX Records Check</div>
+    <div class="fpill">📡 SMTP Verification</div>
+    <div class="fpill">🔁 Duplicate Removal</div>
+    <div class="fpill">⬇️ CSV Download</div>
   </div>
 </div>
 
 <div class="wrap">
   <div class="card">
     <div class="sec-label">Step 1 — Paste Your Emails</div>
-    <textarea id="emailInput"
-      placeholder="Paste one email per line&#10;example1@gmail.com&#10;contact@company.com&#10;&#10;Maximum 25 emails per batch — duplicates removed automatically"></textarea>
+    <textarea id="emailInput" placeholder="Paste one email per line&#10;example1@gmail.com&#10;contact@company.com"></textarea>
     <div class="ta-footer">
       <div class="ta-count">Emails: <em id="emailCount">0</em> / 25</div>
       <div class="ta-warn" id="limitWarn">⚠️ Max 25 emails allowed</div>
       <div class="ta-warn" id="dupWarn" style="color:var(--amber);display:none;"></div>
     </div>
-    <button class="btn-verify" id="verifyBtn" onclick="startVerify()">
-      🔍 Verify Emails Now
-    </button>
+    <button class="btn-verify" id="verifyBtn" onclick="startVerify()">🔍 Verify Emails Now</button>
     <div class="progress-wrap" id="progressWrap">
       <div class="prog-bar-bg"><div class="prog-bar-fill" id="progFill"></div></div>
       <div class="prog-txt" id="progTxt">Preparing...</div>
@@ -315,43 +290,48 @@ footer a { color: var(--yellow); text-decoration: none; }
   <div class="card results-card" id="resultsCard">
     <div class="sec-label">Step 2 — Verification Results</div>
     <div class="stats-grid">
-      <div class="sbox s-total">   <div class="snum" id="sTotal">0</div>    <div class="slbl">Total</div></div>
-      <div class="sbox s-valid">   <div class="snum" id="sValid">0</div>    <div class="slbl">Valid ✅</div></div>
-      <div class="sbox s-invalid"> <div class="snum" id="sInvalid">0</div>  <div class="slbl">Invalid ❌</div></div>
-      <div class="sbox s-catchall"><div class="snum" id="sCatchall">0</div> <div class="slbl">Catch-All ⚠️</div></div>
-      <div class="sbox s-unknown"> <div class="snum" id="sUnknown">0</div>  <div class="slbl">Unknown ❓</div></div>
+      <div class="sbox s-total"><div class="snum" id="sTotal">0</div><div class="slbl">Total</div></div>
+      <div class="sbox s-valid"><div class="snum" id="sValid">0</div><div class="slbl">Valid</div></div>
+      <div class="sbox s-invalid"><div class="snum" id="sInvalid">0</div><div class="slbl">Invalid</div></div>
+      <div class="sbox s-catchall"><div class="snum" id="sCatchall">0</div><div class="slbl">Catch-All</div></div>
+      <div class="sbox s-unknown"><div class="snum" id="sUnknown">0</div><div class="slbl">Unknown</div></div>
     </div>
+
     <div class="actions">
-      <button class="btn-act btn-copy-all"   onclick="copyAll()">📋 Copy All Results</button>
-      <button class="btn-act btn-dl-csv"     onclick="downloadCSV()">⬇️ Download CSV</button>
+      <button class="btn-act btn-copy-all" onclick="copyAll()">📋 Copy All Results</button>
+      <button class="btn-act btn-dl-csv" onclick="downloadCSV()">⬇️ Download CSV</button>
       <button class="btn-act btn-valid-only" onclick="copyValid()">✅ Copy Valid Only</button>
     </div>
+
     <div class="tbl-wrap">
       <table>
         <thead>
           <tr>
             <th>#</th><th>Email Address</th><th>Format</th>
-            <th>MX Records</th><th>SMTP</th><th>Status</th>
+            <th>MX Records</th><th>SMTP</th><th>Status</th><th>Reason</th>
           </tr>
         </thead>
         <tbody id="tblBody"></tbody>
       </table>
     </div>
+
     <div class="footnote">
-      ⚡ Format validated with strict RFC rules · MX Records via Google DNS · SMTP verified using domain intelligence<br>
-      <span style="color:#1a3d20;">Note: Browser-based tools cannot verify if a specific mailbox exists — that requires server-side SMTP handshake.</span>
+      Server-side verification powered by Nexvio backend.
     </div>
   </div>
 </div>
 
 <footer>
-  <a href="https://nexvio.online">nexvio.online</a> — Premium SEO & Link Building Services &nbsp;|&nbsp; © 2025 Nexvio. All rights reserved.
+  <a href="https://nexvio.online">nexvio.online</a> — Premium SEO & Link Building Services | © 2025 Nexvio.
 </footer>
 
 <div class="toast" id="toast"></div>
 
 <script>
+const API_URL = 'https://nexvioonline-production.up.railway.app/api/verify-emails';
+
 const inp = document.getElementById('emailInput');
+
 inp.addEventListener('input', () => {
   const emails = getEmails();
   document.getElementById('emailCount').textContent = emails.length;
@@ -362,7 +342,12 @@ function getEmails() {
   const all = inp.value.split('\n').map(e => e.trim().toLowerCase()).filter(Boolean);
   const seen = new Set();
   const dupes = new Set();
-  all.forEach(e => { if (seen.has(e)) dupes.add(e); else seen.add(e); });
+
+  all.forEach(e => {
+    if (seen.has(e)) dupes.add(e);
+    else seen.add(e);
+  });
+
   const dupWarn = document.getElementById('dupWarn');
   if (dupes.size > 0) {
     dupWarn.textContent = `⚠️ ${dupes.size} duplicate(s) removed`;
@@ -370,68 +355,21 @@ function getEmails() {
   } else {
     dupWarn.style.display = 'none';
   }
+
   return [...new Set(all)];
 }
 
-function validFormat(email) {
-  if ((email.match(/@/g) || []).length !== 1) return false;
-  const [local, domain] = email.split('@');
-  if (!/^[a-zA-Z0-9._%+\-]+$/.test(local)) return false;
-  if (local.includes('..') || local.startsWith('.') || local.endsWith('.')) return false;
-  if (!/^[a-zA-Z0-9]([a-zA-Z0-9\-]{0,61}[a-zA-Z0-9])?(\.[a-zA-Z0-9]([a-zA-Z0-9\-]{0,61}[a-zA-Z0-9])?)*\.[a-zA-Z]{2,}$/.test(domain)) return false;
-  const tld = domain.split('.').pop();
-  if (tld.length < 2) return false;
-  return true;
-}
-
-function getDomain(email) { return email.split('@')[1]?.toLowerCase() || ''; }
-
-async function checkMX(domain) {
-  try {
-    const r = await fetch(`https://dns.google/resolve?name=${domain}&type=MX`, { signal: AbortSignal.timeout(5000) });
-    const d = await r.json();
-    if (d.Answer && d.Answer.length > 0) return 'valid';
-    const r2 = await fetch(`https://dns.google/resolve?name=${domain}&type=A`, { signal: AbortSignal.timeout(5000) });
-    const d2 = await r2.json();
-    return (d2.Answer && d2.Answer.length > 0) ? 'catchall' : 'invalid';
-  } catch { return 'unknown'; }
-}
-
-const KNOWN_PROVIDERS = new Set([
-  'gmail.com','googlemail.com','yahoo.com','yahoo.co.uk','yahoo.co.in',
-  'hotmail.com','hotmail.co.uk','outlook.com','live.com','live.co.uk',
-  'msn.com','icloud.com','me.com','mac.com','aol.com','protonmail.com',
-  'proton.me','zoho.com','yandex.com','yandex.ru','mail.com','gmx.com',
-  'gmx.net','fastmail.com','fastmail.fm','hey.com','tutanota.com',
-  'tutanota.de','comcast.net','verizon.net','att.net','sbcglobal.net',
-  'bellsouth.net','cox.net','earthlink.net','rediffmail.com','wp.pl',
-]);
-
-function checkSMTP(domain, mx) {
-  if (mx === 'invalid') return 'invalid';
-  if (mx === 'unknown') return 'unknown';
-  if (KNOWN_PROVIDERS.has(domain)) return 'valid';
-  if (mx === 'valid') return 'valid';
-  return 'catchall';
-}
-
-function getStatus(fmt, mx, smtp) {
-  if (fmt === 'invalid') return 'invalid';
-  if (mx === 'invalid') return 'invalid';
-  if (smtp === 'invalid') return 'invalid';
-  if (smtp === 'valid' && mx === 'valid') return 'valid';
-  if (mx === 'catchall' || smtp === 'catchall') return 'catchall';
-  return 'unknown';
-}
-
 function pill(v) {
+  v = String(v || '').toLowerCase();
+
   const cfg = {
-    valid:    ['pill-valid',    '✓ Valid'],
-    invalid:  ['pill-invalid',  '✗ Invalid'],
+    valid: ['pill-valid', '✓ Valid'],
+    invalid: ['pill-invalid', '✗ Invalid'],
+    unknown: ['pill-unknown', '? Unknown'],
     catchall: ['pill-catchall', '~ Catch-All'],
-    unknown:  ['pill-unknown',  '? Unknown'],
-    checking: ['pill-checking', '⏳ Checking'],
+    checking: ['pill-checking', '⏳ Checking']
   };
+
   const [cls, lbl] = cfg[v] || cfg.unknown;
   return `<span class="pill ${cls}">${lbl}</span>`;
 }
@@ -440,88 +378,114 @@ let store = [];
 
 async function startVerify() {
   const emails = getEmails();
-  if (!emails.length) { alert('Please enter at least one email address.'); return; }
-  if (emails.length > 25) { alert('Maximum 25 emails allowed per batch.'); return; }
+
+  if (!emails.length) {
+    alert('Please enter at least one email address.');
+    return;
+  }
+
+  if (emails.length > 25) {
+    alert('Maximum 25 emails allowed per batch.');
+    return;
+  }
 
   store = [];
+
   const btn = document.getElementById('verifyBtn');
-  btn.disabled = true; btn.innerHTML = '⏳ Verifying...';
+  btn.disabled = true;
+  btn.innerHTML = '⏳ Verifying...';
 
-  const pw = document.getElementById('progressWrap');
-  const pf = document.getElementById('progFill');
-  const pt = document.getElementById('progTxt');
-  pw.style.display = 'block';
+  document.getElementById('progressWrap').style.display = 'block';
+  document.getElementById('progFill').style.width = '35%';
+  document.getElementById('progTxt').textContent = 'Sending emails to server...';
 
-  const rc = document.getElementById('resultsCard');
-  rc.style.display = 'block';
+  document.getElementById('resultsCard').style.display = 'block';
+  document.getElementById('tblBody').innerHTML = '';
+
+  try {
+    const response = await fetch(API_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ emails })
+    });
+
+    const data = await response.json();
+
+    if (!response.ok) {
+      throw new Error(data.error || 'Verification failed');
+    }
+
+    store = data.results.map(r => ({
+      email: r.email,
+      format: r.format || 'unknown',
+      mx: r.mx || 'unknown',
+      smtp: r.smtp || 'unknown',
+      status: String(r.status || 'Unknown').toLowerCase(),
+      reason: r.reason || ''
+    }));
+
+    renderResults(store);
+
+    document.getElementById('progFill').style.width = '100%';
+    document.getElementById('progTxt').textContent = `✅ Done! ${store.length} emails verified.`;
+
+  } catch (err) {
+    alert('Error: ' + err.message);
+    document.getElementById('progTxt').textContent = '❌ Verification failed.';
+  }
+
+  btn.disabled = false;
+  btn.innerHTML = '🔍 Verify Emails Now';
+  document.getElementById('resultsCard').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function renderResults(rows) {
   const tb = document.getElementById('tblBody');
   tb.innerHTML = '';
 
-  emails.forEach((e, i) => {
-    tb.innerHTML += `<tr id="row${i}">
-      <td class="td-num">${i+1}</td>
-      <td class="td-email">${escHtml(e)}</td>
-      <td id="f${i}">${pill('checking')}</td>
-      <td id="m${i}">${pill('checking')}</td>
-      <td id="s${i}">${pill('checking')}</td>
-      <td id="st${i}">${pill('checking')}</td>
-    </tr>`;
+  let c = { total: rows.length, valid: 0, invalid: 0, catchall: 0, unknown: 0 };
+
+  rows.forEach((r, i) => {
+    const status = r.status;
+
+    if (status === 'valid') c.valid++;
+    else if (status === 'invalid') c.invalid++;
+    else if (status === 'catchall') c.catchall++;
+    else c.unknown++;
+
+    tb.innerHTML += `
+      <tr>
+        <td class="td-num">${i + 1}</td>
+        <td class="td-email">${escHtml(r.email)}</td>
+        <td>${pill(r.format)}</td>
+        <td>${pill(r.mx)}</td>
+        <td>${pill(r.smtp)}</td>
+        <td>${pill(status)}</td>
+        <td>${escHtml(r.reason)}</td>
+      </tr>
+    `;
   });
 
-  let c = { total: emails.length, valid:0, invalid:0, catchall:0, unknown:0 };
   updateStats(c);
-
-  for (let i = 0; i < emails.length; i++) {
-    pf.style.width = Math.round((i / emails.length) * 100) + '%';
-    pt.textContent = `Checking ${i+1} of ${emails.length}: ${emails[i]}`;
-
-    const e = emails[i];
-    const domain = getDomain(e);
-    const fmt = validFormat(e) ? 'valid' : 'invalid';
-    document.getElementById(`f${i}`).innerHTML = pill(fmt);
-
-    let mx = 'invalid', smtp = 'invalid';
-    if (fmt === 'valid') {
-      mx   = await checkMX(domain);
-      smtp = checkSMTP(domain, mx);
-    }
-    document.getElementById(`m${i}`).innerHTML = pill(mx);
-    document.getElementById(`s${i}`).innerHTML = pill(smtp);
-
-    const status = getStatus(fmt, mx, smtp);
-    document.getElementById(`st${i}`).innerHTML = pill(status);
-
-    store.push({ email: e, format: fmt, mx, smtp, status });
-    if      (status === 'valid')    c.valid++;
-    else if (status === 'invalid')  c.invalid++;
-    else if (status === 'catchall') c.catchall++;
-    else                            c.unknown++;
-    updateStats(c);
-  }
-
-  pf.style.width = '100%';
-  pt.textContent = `✅ Done! ${emails.length} emails verified.`;
-  btn.disabled = false;
-  btn.innerHTML = '🔍 Verify Emails Now';
-  rc.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
 function escHtml(s) {
-  return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
 }
 
 function updateStats(c) {
-  document.getElementById('sTotal').textContent    = c.total;
-  document.getElementById('sValid').textContent    = c.valid;
-  document.getElementById('sInvalid').textContent  = c.invalid;
+  document.getElementById('sTotal').textContent = c.total;
+  document.getElementById('sValid').textContent = c.valid;
+  document.getElementById('sInvalid').textContent = c.invalid;
   document.getElementById('sCatchall').textContent = c.catchall;
-  document.getElementById('sUnknown').textContent  = c.unknown;
+  document.getElementById('sUnknown').textContent = c.unknown;
 }
 
 function toTSV(rows) {
-  const hdr = '#\tEmail\tFormat\tMX Records\tSMTP\tStatus';
+  const hdr = '#\tEmail\tFormat\tMX Records\tSMTP\tStatus\tReason';
   return [hdr, ...rows.map((r,i) =>
-    `${i+1}\t${r.email}\t${r.format}\t${r.mx}\t${r.smtp}\t${r.status}`)].join('\n');
+    `${i+1}\t${r.email}\t${r.format}\t${r.mx}\t${r.smtp}\t${r.status}\t${r.reason || ''}`
+  )].join('\n');
 }
 
 function copyAll() {
@@ -532,45 +496,60 @@ function copyAll() {
 
 function copyValid() {
   const v = store.filter(r => r.status === 'valid');
-  if (!v.length) { showToast('No valid emails found!'); return; }
+  if (!v.length) {
+    showToast('No valid emails found!');
+    return;
+  }
   clip(toTSV(v));
   showToast(`✅ ${v.length} valid email(s) copied!`);
 }
 
 function downloadCSV() {
   if (!store.length) return;
-  const hdr = '#,Email,Format,MX Records,SMTP,Status';
+
+  const hdr = '#,Email,Format,MX Records,SMTP,Status,Reason';
   const rows = store.map((r,i) =>
-    `${i+1},"${r.email}",${r.format},${r.mx},${r.smtp},${r.status}`);
-  const blob = new Blob([[hdr,...rows].join('\n')], { type:'text/csv;charset=utf-8;' });
+    `${i+1},"${r.email}",${r.format},${r.mx},${r.smtp},${r.status},"${r.reason || ''}"`
+  );
+
+  const blob = new Blob([[hdr, ...rows].join('\n')], { type:'text/csv;charset=utf-8;' });
   const a = document.createElement('a');
   a.href = URL.createObjectURL(blob);
   a.download = 'nexvio-email-verification.csv';
-  document.body.appendChild(a); a.click();
+  document.body.appendChild(a);
+  a.click();
   document.body.removeChild(a);
   URL.revokeObjectURL(a.href);
+
   showToast('⬇️ CSV downloaded!');
 }
 
 function clip(txt) {
   if (navigator.clipboard) {
     navigator.clipboard.writeText(txt).catch(() => fallbackCopy(txt));
-  } else { fallbackCopy(txt); }
+  } else {
+    fallbackCopy(txt);
+  }
 }
 
 function fallbackCopy(txt) {
   const t = document.createElement('textarea');
-  t.value = txt; t.style.position = 'fixed'; t.style.opacity = '0';
-  document.body.appendChild(t); t.select();
+  t.value = txt;
+  t.style.position = 'fixed';
+  t.style.opacity = '0';
+  document.body.appendChild(t);
+  t.select();
   document.execCommand('copy');
   document.body.removeChild(t);
 }
 
 function showToast(msg) {
   const el = document.getElementById('toast');
-  el.textContent = msg; el.classList.add('show');
+  el.textContent = msg;
+  el.classList.add('show');
   setTimeout(() => el.classList.remove('show'), 3000);
 }
 </script>
+
 </body>
 </html>
