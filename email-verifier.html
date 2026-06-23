@@ -6,28 +6,29 @@
 <title>Free Email Verifier Tool | Nexvio</title>
 <meta name="description" content="Verify bulk emails instantly. Check Format, MX Records, SMTP and get Valid/Invalid status. Free tool by Nexvio.">
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Syne:wght@700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@700;800;900&display=swap');
 
 :root {
-  --navy: #050d1a;
-  --navy2: #091222;
-  --card: #0c1829;
-  --border: #152236;
-  --border2: #1a2d47;
-  --cyan: #00c6ff;
-  --purple: #7b5cff;
-  --green: #00e5a0;
-  --red: #ff4560;
-  --amber: #ffb703;
-  --slate: #8ca0bc;
-  --text: #dde8f5;
+  --bg: #0a1a0f;
+  --bg2: #0d2010;
+  --card: #0f2614;
+  --border: #1a3d20;
+  --border2: #225028;
+  --yellow: #f5a623;
+  --yellow2: #ffc034;
+  --green-light: #2ecc71;
+  --red: #e74c3c;
+  --amber: #f39c12;
+  --slate: #7a9e82;
+  --text: #e8f5eb;
   --white: #ffffff;
+  --nav-bg: #061209;
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
 body {
-  background: var(--navy);
+  background: var(--bg);
   color: var(--text);
   font-family: 'Inter', sans-serif;
   font-size: 14px;
@@ -36,81 +37,89 @@ body {
 }
 
 .topbar {
-  background: rgba(5,13,26,0.96);
-  backdrop-filter: blur(12px);
+  background: var(--nav-bg);
   border-bottom: 1px solid var(--border);
   position: sticky; top: 0; z-index: 100;
-  padding: 0 32px;
+  padding: 0 40px;
   display: flex; align-items: center; justify-content: space-between;
-  height: 60px;
+  height: 64px;
 }
 .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
 .brand-mark {
-  width: 32px; height: 32px;
-  background: linear-gradient(135deg, var(--cyan), var(--purple));
+  width: 36px; height: 36px;
+  background: var(--yellow);
   border-radius: 8px;
   display: flex; align-items: center; justify-content: center;
-  font-size: 15px; font-weight: 800; color: #fff;
-  font-family: 'Syne', sans-serif;
+  font-size: 18px; font-weight: 900; color: #061209;
+  font-family: 'Montserrat', sans-serif;
 }
 .brand-name {
-  font-family: 'Syne', sans-serif;
-  font-size: 17px; font-weight: 800;
-  background: linear-gradient(90deg, var(--cyan), var(--purple));
-  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px; font-weight: 900; color: var(--white);
+  letter-spacing: -0.5px;
 }
-.topbar-tag {
-  font-size: 11px; color: var(--slate);
-  background: var(--card); border: 1px solid var(--border);
-  padding: 4px 10px; border-radius: 99px;
+.brand-name span { color: var(--yellow); }
+.nav-links { display: flex; gap: 28px; align-items: center; }
+.nav-links a {
+  color: var(--slate); font-size: 13px; font-weight: 500;
+  text-decoration: none; transition: color 0.2s;
 }
+.nav-links a:hover { color: var(--white); }
+.nav-links a.active { color: var(--yellow); }
+.nav-btn {
+  background: var(--yellow);
+  color: #061209 !important;
+  padding: 8px 18px; border-radius: 6px;
+  font-weight: 700 !important;
+}
+.nav-btn:hover { background: var(--yellow2) !important; color: #061209 !important; }
 
 .hero {
+  background: linear-gradient(135deg, #061a0a 0%, #0d2a10 50%, #061a0a 100%);
   text-align: center;
-  padding: 64px 20px 48px;
+  padding: 70px 20px 50px;
+  border-bottom: 1px solid var(--border);
   position: relative; overflow: hidden;
 }
 .hero::before {
   content: '';
-  position: absolute; top: -40px; left: 50%; transform: translateX(-50%);
-  width: 600px; height: 300px;
-  background: radial-gradient(ellipse, rgba(0,198,255,0.08) 0%, transparent 70%);
+  position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+  background: radial-gradient(ellipse at 50% 0%, rgba(245,166,35,0.07) 0%, transparent 65%);
   pointer-events: none;
 }
-.hero-eyebrow {
+.hero-badge {
   display: inline-flex; align-items: center; gap: 7px;
-  background: rgba(0,198,255,0.07); border: 1px solid rgba(0,198,255,0.2);
-  color: var(--cyan); font-size: 11px; font-weight: 600;
-  letter-spacing: 1.4px; text-transform: uppercase;
-  padding: 6px 14px; border-radius: 99px; margin-bottom: 22px;
+  background: rgba(245,166,35,0.1); border: 1px solid rgba(245,166,35,0.3);
+  color: var(--yellow); font-size: 11px; font-weight: 700;
+  letter-spacing: 1.5px; text-transform: uppercase;
+  padding: 7px 16px; border-radius: 99px;
+  margin-bottom: 24px;
 }
 .hero h1 {
-  font-family: 'Syne', sans-serif;
-  font-size: clamp(28px, 5.5vw, 52px);
-  font-weight: 800; line-height: 1.1;
-  color: var(--white); margin-bottom: 16px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(30px, 5.5vw, 56px);
+  font-weight: 900; line-height: 1.05;
+  color: var(--white); margin-bottom: 18px;
+  text-transform: uppercase;
 }
-.hero h1 span {
-  background: linear-gradient(90deg, var(--cyan), var(--purple));
-  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-}
-.hero-sub { color: var(--slate); font-size: 15px; max-width: 500px; margin: 0 auto 28px; }
-.feature-pills { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; }
+.hero h1 span { color: var(--yellow); }
+.hero-sub { color: var(--slate); font-size: 15px; max-width: 520px; margin: 0 auto 32px; line-height: 1.7; }
+.feature-pills { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
 .fpill {
-  background: var(--card); border: 1px solid var(--border2);
-  border-radius: 99px; padding: 6px 14px;
+  background: rgba(255,255,255,0.04); border: 1px solid var(--border2);
+  border-radius: 99px; padding: 7px 16px;
   font-size: 12px; color: var(--slate);
-  display: flex; align-items: center; gap: 5px;
+  display: flex; align-items: center; gap: 6px;
 }
 .fpill b { color: var(--text); }
 
-.wrap { max-width: 860px; margin: 0 auto; padding: 0 20px 80px; }
+.wrap { max-width: 880px; margin: 0 auto; padding: 40px 20px 80px; }
 
 .sec-label {
   font-size: 10px; font-weight: 700;
-  letter-spacing: 1.8px; text-transform: uppercase;
-  color: var(--cyan); margin-bottom: 14px;
-  display: flex; align-items: center; gap: 10px;
+  letter-spacing: 2px; text-transform: uppercase;
+  color: var(--yellow); margin-bottom: 16px;
+  display: flex; align-items: center; gap: 12px;
 }
 .sec-label::after {
   content: ''; flex: 1; height: 1px;
@@ -120,132 +129,139 @@ body {
 .card {
   background: var(--card);
   border: 1px solid var(--border2);
-  border-radius: 16px; padding: 28px; margin-bottom: 20px;
+  border-radius: 16px; padding: 30px; margin-bottom: 24px;
 }
 
 textarea {
   width: 100%;
-  background: var(--navy2);
+  background: var(--bg2);
   border: 1.5px solid var(--border2);
   border-radius: 10px;
   color: var(--text);
   font-family: 'Inter', monospace;
-  font-size: 13px; line-height: 1.8;
-  padding: 14px 16px;
-  resize: vertical; min-height: 155px;
+  font-size: 13px; line-height: 1.9;
+  padding: 16px 18px;
+  resize: vertical; min-height: 160px;
   outline: none; transition: border-color 0.2s;
 }
-textarea:focus { border-color: var(--cyan); }
-textarea::placeholder { color: #3a5070; }
+textarea:focus { border-color: var(--yellow); }
+textarea::placeholder { color: #2a4a30; }
 
-.ta-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 10px; }
+.ta-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 10px; flex-wrap: wrap; gap: 6px; }
 .ta-count { font-size: 12px; color: var(--slate); }
-.ta-count em { color: var(--cyan); font-style: normal; font-weight: 600; }
+.ta-count em { color: var(--yellow); font-style: normal; font-weight: 700; }
 .ta-warn { font-size: 12px; color: var(--red); display: none; }
 
 .btn-verify {
-  display: flex; align-items: center; justify-content: center; gap: 9px;
-  width: 100%; margin-top: 16px; padding: 14px 20px;
-  background: linear-gradient(135deg, var(--cyan) 0%, var(--purple) 100%);
-  color: #fff; font-family: 'Syne', sans-serif;
+  display: flex; align-items: center; justify-content: center; gap: 10px;
+  width: 100%; margin-top: 18px; padding: 15px 20px;
+  background: var(--yellow); color: #061209;
+  font-family: 'Montserrat', sans-serif;
   font-size: 15px; font-weight: 800;
   border: none; border-radius: 10px;
-  cursor: pointer; letter-spacing: 0.3px;
-  transition: opacity 0.2s, transform 0.15s;
+  cursor: pointer; text-transform: uppercase; letter-spacing: 0.5px;
+  transition: background 0.2s, transform 0.15s;
 }
-.btn-verify:hover:not(:disabled) { opacity: 0.88; transform: translateY(-1px); }
-.btn-verify:disabled { opacity: 0.38; cursor: not-allowed; }
+.btn-verify:hover:not(:disabled) { background: var(--yellow2); transform: translateY(-1px); }
+.btn-verify:disabled { opacity: 0.4; cursor: not-allowed; transform: none; }
 
-.progress-wrap { display: none; margin-top: 18px; }
+.progress-wrap { display: none; margin-top: 20px; }
 .prog-bar-bg { height: 5px; background: var(--border2); border-radius: 99px; overflow: hidden; }
 .prog-bar-fill {
   height: 100%; width: 0%;
-  background: linear-gradient(90deg, var(--cyan), var(--purple));
+  background: linear-gradient(90deg, var(--yellow), var(--yellow2));
   border-radius: 99px; transition: width 0.35s ease;
 }
-.prog-txt { font-size: 12px; color: var(--slate); text-align: center; margin-top: 9px; }
+.prog-txt { font-size: 12px; color: var(--slate); text-align: center; margin-top: 10px; }
 
 .results-card { display: none; }
 
 .stats-grid {
   display: grid; grid-template-columns: repeat(5, 1fr);
-  gap: 10px; margin-bottom: 22px;
+  gap: 12px; margin-bottom: 24px;
 }
 @media(max-width:600px){ .stats-grid { grid-template-columns: repeat(3,1fr); } }
 
 .sbox {
-  background: var(--navy2); border: 1px solid var(--border2);
-  border-radius: 12px; padding: 14px 10px; text-align: center;
+  background: var(--bg2); border: 1px solid var(--border2);
+  border-radius: 12px; padding: 16px 10px; text-align: center;
 }
-.sbox .snum { font-family: 'Syne', sans-serif; font-size: 28px; font-weight: 800; line-height: 1; }
-.sbox .slbl { font-size: 10px; text-transform: uppercase; letter-spacing: 1px; color: var(--slate); margin-top: 5px; }
+.sbox .snum { font-family: 'Montserrat', sans-serif; font-size: 30px; font-weight: 900; line-height: 1; }
+.sbox .slbl { font-size: 10px; text-transform: uppercase; letter-spacing: 1px; color: var(--slate); margin-top: 6px; }
 .sbox.s-total .snum   { color: var(--white); }
-.sbox.s-valid .snum   { color: var(--green); }
+.sbox.s-valid .snum   { color: var(--green-light); }
 .sbox.s-invalid .snum { color: var(--red); }
 .sbox.s-catchall .snum{ color: var(--amber); }
 .sbox.s-unknown .snum { color: var(--slate); }
 
-.actions { display: flex; gap: 9px; flex-wrap: wrap; margin-bottom: 18px; }
+.actions { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 20px; }
 .btn-act {
-  display: flex; align-items: center; gap: 6px;
-  padding: 8px 16px; border-radius: 8px;
-  font-size: 12px; font-weight: 600;
+  display: flex; align-items: center; gap: 7px;
+  padding: 9px 18px; border-radius: 8px;
+  font-size: 12px; font-weight: 700;
   border: 1.5px solid; cursor: pointer;
   transition: background 0.18s; background: transparent;
+  font-family: 'Inter', sans-serif;
 }
-.btn-copy-all   { border-color: var(--cyan);   color: var(--cyan); }
-.btn-copy-all:hover { background: rgba(0,198,255,0.07); }
-.btn-dl-csv     { border-color: var(--green);  color: var(--green); }
-.btn-dl-csv:hover { background: rgba(0,229,160,0.07); }
-.btn-valid-only { border-color: var(--purple); color: var(--purple); }
-.btn-valid-only:hover { background: rgba(123,92,255,0.07); }
+.btn-copy-all   { border-color: var(--yellow); color: var(--yellow); }
+.btn-copy-all:hover { background: rgba(245,166,35,0.08); }
+.btn-dl-csv     { border-color: var(--green-light); color: var(--green-light); }
+.btn-dl-csv:hover { background: rgba(46,204,113,0.08); }
+.btn-valid-only { border-color: var(--slate); color: var(--slate); }
+.btn-valid-only:hover { border-color: var(--white); color: var(--white); }
 
 .tbl-wrap { overflow-x: auto; border-radius: 10px; border: 1px solid var(--border2); }
 table { width: 100%; border-collapse: collapse; font-size: 12.5px; }
 thead th {
-  background: var(--navy2); padding: 10px 14px; text-align: left;
+  background: var(--bg2); padding: 11px 14px; text-align: left;
   font-size: 10px; font-weight: 700; text-transform: uppercase;
   letter-spacing: 1.2px; color: var(--slate);
   border-bottom: 1px solid var(--border2); white-space: nowrap;
 }
-tbody tr { border-bottom: 1px solid #0e1e30; transition: background 0.12s; }
+tbody tr { border-bottom: 1px solid #0f2214; transition: background 0.12s; }
 tbody tr:last-child { border-bottom: none; }
 tbody tr:hover { background: rgba(255,255,255,0.02); }
-td { padding: 9px 14px; vertical-align: middle; }
-.td-num { color: #2d4a6a; font-size: 11px; width: 32px; }
-.td-email { font-family: monospace; font-size: 12px; color: #a8c0e0; max-width: 220px; word-break: break-all; }
+td { padding: 10px 14px; vertical-align: middle; }
+.td-num { color: #2a4a30; font-size: 11px; width: 36px; }
+.td-email { font-family: monospace; font-size: 12px; color: #9abfa0; max-width: 230px; word-break: break-all; }
 
 .pill {
-  display: inline-flex; align-items: center; gap: 3px;
-  padding: 3px 9px; border-radius: 99px;
+  display: inline-flex; align-items: center; gap: 4px;
+  padding: 4px 10px; border-radius: 99px;
   font-size: 10px; font-weight: 700;
   letter-spacing: 0.3px; white-space: nowrap;
 }
-.pill-valid    { background:rgba(0,229,160,0.1);  color:var(--green);  border:1px solid rgba(0,229,160,0.2); }
-.pill-invalid  { background:rgba(255,69,96,0.1);  color:var(--red);    border:1px solid rgba(255,69,96,0.2); }
-.pill-catchall { background:rgba(255,183,3,0.1);  color:var(--amber);  border:1px solid rgba(255,183,3,0.2); }
-.pill-unknown  { background:rgba(140,160,188,0.1);color:var(--slate);  border:1px solid rgba(140,160,188,0.2); }
-.pill-checking { background:rgba(0,198,255,0.08); color:var(--cyan);   border:1px solid rgba(0,198,255,0.15); }
+.pill-valid    { background:rgba(46,204,113,0.12); color:#2ecc71; border:1px solid rgba(46,204,113,0.25); }
+.pill-invalid  { background:rgba(231,76,60,0.12);  color:#e74c3c; border:1px solid rgba(231,76,60,0.25); }
+.pill-catchall { background:rgba(243,156,18,0.12); color:#f39c12; border:1px solid rgba(243,156,18,0.25); }
+.pill-unknown  { background:rgba(122,158,130,0.12);color:#7a9e82; border:1px solid rgba(122,158,130,0.25); }
+.pill-checking { background:rgba(245,166,35,0.08); color:#f5a623; border:1px solid rgba(245,166,35,0.2); }
 
 .toast {
   position: fixed; bottom: 28px; left: 50%;
   transform: translateX(-50%) translateY(16px);
-  background: var(--green); color: #02160e;
-  padding: 10px 24px; border-radius: 99px;
-  font-size: 13px; font-weight: 700;
+  background: var(--yellow); color: #061209;
+  padding: 11px 26px; border-radius: 99px;
+  font-size: 13px; font-weight: 800;
   opacity: 0; transition: all 0.3s;
   pointer-events: none; z-index: 999; white-space: nowrap;
 }
 .toast.show { opacity:1; transform: translateX(-50%) translateY(0); }
 
-.footnote { text-align: center; color: var(--slate); font-size: 11.5px; margin-top: 14px; line-height: 1.7; }
+.footnote { text-align: center; color: var(--slate); font-size: 11.5px; margin-top: 16px; line-height: 1.8; }
 
 footer {
   border-top: 1px solid var(--border);
-  text-align: center; padding: 22px 20px;
+  text-align: center; padding: 24px 20px;
   color: var(--slate); font-size: 12px;
 }
-footer a { color: var(--cyan); text-decoration: none; }
+footer a { color: var(--yellow); text-decoration: none; }
+
+@media(max-width:700px){
+  .topbar { padding: 0 20px; }
+  .nav-links { display: none; }
+  .card { padding: 20px 16px; }
+}
 </style>
 </head>
 <body>
@@ -253,32 +269,39 @@ footer a { color: var(--cyan); text-decoration: none; }
 <nav class="topbar">
   <a href="https://nexvio.online" class="brand">
     <div class="brand-mark">N</div>
-    <span class="brand-name">Nexvio</span>
+    <span class="brand-name">NEX<span>VIO</span></span>
   </a>
-  <div class="topbar-tag">Free SEO Tools</div>
+  <div class="nav-links">
+    <a href="https://nexvio.online">Home</a>
+    <a href="https://nexvio.online/services.html">Services</a>
+    <a href="https://nexvio.online/seo-audit.html">Audit Report</a>
+    <a href="#" class="active">Email Verifier</a>
+    <a href="https://nexvio.online/contact.html" class="nav-btn">Get Started</a>
+  </div>
 </nav>
 
 <div class="hero">
-  <div class="hero-eyebrow">✉️ Free Tool</div>
+  <div class="hero-badge">✉️ Free Tool</div>
   <h1>Bulk Email<br><span>Verification Tool</span></h1>
-  <p class="hero-sub">Paste up to 25 emails and instantly check Format, MX Records, SMTP status and deliverability.</p>
+  <p class="hero-sub">Paste up to 25 emails and instantly check Format, MX Records, SMTP status and deliverability — 100% free.</p>
   <div class="feature-pills">
-    <div class="fpill">✅ <b>Format</b> Check</div>
-    <div class="fpill">🌐 <b>MX</b> Records</div>
-    <div class="fpill">📡 <b>SMTP</b> Verify</div>
-    <div class="fpill">📋 <b>Copy</b> Results</div>
+    <div class="fpill">✅ <b>Format</b> Validation</div>
+    <div class="fpill">🌐 <b>MX</b> Records Check</div>
+    <div class="fpill">📡 <b>SMTP</b> Verification</div>
+    <div class="fpill">🔁 <b>Duplicate</b> Removal</div>
     <div class="fpill">⬇️ <b>CSV</b> Download</div>
   </div>
 </div>
 
 <div class="wrap">
   <div class="card">
-    <div class="sec-label">Step 1 — Paste Emails</div>
+    <div class="sec-label">Step 1 — Paste Your Emails</div>
     <textarea id="emailInput"
-      placeholder="Paste one email per line&#10;example1@gmail.com&#10;contact@company.com&#10;&#10;Max 25 emails per batch"></textarea>
+      placeholder="Paste one email per line&#10;example1@gmail.com&#10;contact@company.com&#10;&#10;Maximum 25 emails per batch — duplicates removed automatically"></textarea>
     <div class="ta-footer">
-      <div class="ta-count">Count: <em id="emailCount">0</em> / 25</div>
+      <div class="ta-count">Emails: <em id="emailCount">0</em> / 25</div>
       <div class="ta-warn" id="limitWarn">⚠️ Max 25 emails allowed</div>
+      <div class="ta-warn" id="dupWarn" style="color:var(--amber);display:none;"></div>
     </div>
     <button class="btn-verify" id="verifyBtn" onclick="startVerify()">
       🔍 Verify Emails Now
@@ -290,13 +313,13 @@ footer a { color: var(--cyan); text-decoration: none; }
   </div>
 
   <div class="card results-card" id="resultsCard">
-    <div class="sec-label">Step 2 — Results</div>
+    <div class="sec-label">Step 2 — Verification Results</div>
     <div class="stats-grid">
-      <div class="sbox s-total">  <div class="snum" id="sTotal">0</div>   <div class="slbl">Total</div></div>
-      <div class="sbox s-valid">  <div class="snum" id="sValid">0</div>   <div class="slbl">Valid ✅</div></div>
-      <div class="sbox s-invalid"><div class="snum" id="sInvalid">0</div> <div class="slbl">Invalid ❌</div></div>
-      <div class="sbox s-catchall"><div class="snum" id="sCatchall">0</div><div class="slbl">Catch-All ⚠️</div></div>
-      <div class="sbox s-unknown"><div class="snum" id="sUnknown">0</div> <div class="slbl">Unknown ❓</div></div>
+      <div class="sbox s-total">   <div class="snum" id="sTotal">0</div>    <div class="slbl">Total</div></div>
+      <div class="sbox s-valid">   <div class="snum" id="sValid">0</div>    <div class="slbl">Valid ✅</div></div>
+      <div class="sbox s-invalid"> <div class="snum" id="sInvalid">0</div>  <div class="slbl">Invalid ❌</div></div>
+      <div class="sbox s-catchall"><div class="snum" id="sCatchall">0</div> <div class="slbl">Catch-All ⚠️</div></div>
+      <div class="sbox s-unknown"> <div class="snum" id="sUnknown">0</div>  <div class="slbl">Unknown ❓</div></div>
     </div>
     <div class="actions">
       <button class="btn-act btn-copy-all"   onclick="copyAll()">📋 Copy All Results</button>
@@ -315,70 +338,99 @@ footer a { color: var(--cyan); text-decoration: none; }
       </table>
     </div>
     <div class="footnote">
-      ⚡ MX Records checked via Google DNS · SMTP verified using domain heuristics · Results are 90–95% accurate<br>
-      <span style="color:#1e3a5a;">For highest accuracy, valid emails should be tested with actual sending.</span>
+      ⚡ Format validated with strict RFC rules · MX Records via Google DNS · SMTP verified using domain intelligence<br>
+      <span style="color:#1a3d20;">Note: Browser-based tools cannot verify if a specific mailbox exists — that requires server-side SMTP handshake.</span>
     </div>
   </div>
 </div>
 
 <footer>
-  <a href="https://nexvio.online">nexvio.online</a> — Professional SEO & Digital Marketing Tools &nbsp;|&nbsp; © 2025 Nexvio
+  <a href="https://nexvio.online">nexvio.online</a> — Premium SEO & Link Building Services &nbsp;|&nbsp; © 2025 Nexvio. All rights reserved.
 </footer>
 
-<div class="toast" id="toast">Copied!</div>
+<div class="toast" id="toast"></div>
 
 <script>
 const inp = document.getElementById('emailInput');
 inp.addEventListener('input', () => {
-  const n = getEmails().length;
-  document.getElementById('emailCount').textContent = n;
-  document.getElementById('limitWarn').style.display = n > 25 ? 'flex' : 'none';
+  const emails = getEmails();
+  document.getElementById('emailCount').textContent = emails.length;
+  document.getElementById('limitWarn').style.display = emails.length > 25 ? 'flex' : 'none';
 });
 
 function getEmails() {
-  return inp.value.split('\n').map(e => e.trim()).filter(Boolean);
+  const all = inp.value.split('\n').map(e => e.trim().toLowerCase()).filter(Boolean);
+  const seen = new Set();
+  const dupes = new Set();
+  all.forEach(e => { if (seen.has(e)) dupes.add(e); else seen.add(e); });
+  const dupWarn = document.getElementById('dupWarn');
+  if (dupes.size > 0) {
+    dupWarn.textContent = `⚠️ ${dupes.size} duplicate(s) removed`;
+    dupWarn.style.display = 'flex';
+  } else {
+    dupWarn.style.display = 'none';
+  }
+  return [...new Set(all)];
 }
 
-function validFormat(e) {
-  return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(e);
+function validFormat(email) {
+  if ((email.match(/@/g) || []).length !== 1) return false;
+  const [local, domain] = email.split('@');
+  if (!/^[a-zA-Z0-9._%+\-]+$/.test(local)) return false;
+  if (local.includes('..') || local.startsWith('.') || local.endsWith('.')) return false;
+  if (!/^[a-zA-Z0-9]([a-zA-Z0-9\-]{0,61}[a-zA-Z0-9])?(\.[a-zA-Z0-9]([a-zA-Z0-9\-]{0,61}[a-zA-Z0-9])?)*\.[a-zA-Z]{2,}$/.test(domain)) return false;
+  const tld = domain.split('.').pop();
+  if (tld.length < 2) return false;
+  return true;
 }
-function getDomain(e) { return e.split('@')[1]?.toLowerCase() || ''; }
+
+function getDomain(email) { return email.split('@')[1]?.toLowerCase() || ''; }
 
 async function checkMX(domain) {
   try {
-    const r = await fetch(`https://dns.google/resolve?name=${domain}&type=MX`);
+    const r = await fetch(`https://dns.google/resolve?name=${domain}&type=MX`, { signal: AbortSignal.timeout(5000) });
     const d = await r.json();
-    return (d.Answer && d.Answer.length) ? 'valid' : 'invalid';
+    if (d.Answer && d.Answer.length > 0) return 'valid';
+    const r2 = await fetch(`https://dns.google/resolve?name=${domain}&type=A`, { signal: AbortSignal.timeout(5000) });
+    const d2 = await r2.json();
+    return (d2.Answer && d2.Answer.length > 0) ? 'catchall' : 'invalid';
   } catch { return 'unknown'; }
 }
 
-const KNOWN = ['gmail.com','yahoo.com','hotmail.com','outlook.com','live.com',
-  'icloud.com','me.com','aol.com','protonmail.com','zoho.com','yandex.com',
-  'mail.com','gmx.com','fastmail.com','hey.com','tutanota.com','msn.com',
-  'comcast.net','verizon.net','att.net','yahoo.co.uk','googlemail.com'];
+const KNOWN_PROVIDERS = new Set([
+  'gmail.com','googlemail.com','yahoo.com','yahoo.co.uk','yahoo.co.in',
+  'hotmail.com','hotmail.co.uk','outlook.com','live.com','live.co.uk',
+  'msn.com','icloud.com','me.com','mac.com','aol.com','protonmail.com',
+  'proton.me','zoho.com','yandex.com','yandex.ru','mail.com','gmx.com',
+  'gmx.net','fastmail.com','fastmail.fm','hey.com','tutanota.com',
+  'tutanota.de','comcast.net','verizon.net','att.net','sbcglobal.net',
+  'bellsouth.net','cox.net','earthlink.net','rediffmail.com','wp.pl',
+]);
 
 function checkSMTP(domain, mx) {
   if (mx === 'invalid') return 'invalid';
-  if (KNOWN.includes(domain)) return 'valid';
+  if (mx === 'unknown') return 'unknown';
+  if (KNOWN_PROVIDERS.has(domain)) return 'valid';
   if (mx === 'valid') return 'valid';
-  return 'unknown';
+  return 'catchall';
 }
 
 function getStatus(fmt, mx, smtp) {
   if (fmt === 'invalid') return 'invalid';
   if (mx === 'invalid') return 'invalid';
+  if (smtp === 'invalid') return 'invalid';
   if (smtp === 'valid' && mx === 'valid') return 'valid';
-  if (mx === 'valid') return 'catchall';
+  if (mx === 'catchall' || smtp === 'catchall') return 'catchall';
   return 'unknown';
 }
 
 function pill(v) {
   const cfg = {
-    valid:    ['pill-valid',   '✓ Valid'],
-    invalid:  ['pill-invalid', '✗ Invalid'],
-    catchall: ['pill-catchall','~ Catch-All'],
-    unknown:  ['pill-unknown', '? Unknown'],
-    checking: ['pill-checking','⏳'],
+    valid:    ['pill-valid',    '✓ Valid'],
+    invalid:  ['pill-invalid',  '✗ Invalid'],
+    catchall: ['pill-catchall', '~ Catch-All'],
+    unknown:  ['pill-unknown',  '? Unknown'],
+    checking: ['pill-checking', '⏳ Checking'],
   };
   const [cls, lbl] = cfg[v] || cfg.unknown;
   return `<span class="pill ${cls}">${lbl}</span>`;
@@ -388,12 +440,12 @@ let store = [];
 
 async function startVerify() {
   const emails = getEmails();
-  if (!emails.length) { alert('Please enter at least one email.'); return; }
-  if (emails.length > 25) { alert('Maximum 25 emails per batch.'); return; }
+  if (!emails.length) { alert('Please enter at least one email address.'); return; }
+  if (emails.length > 25) { alert('Maximum 25 emails allowed per batch.'); return; }
 
   store = [];
   const btn = document.getElementById('verifyBtn');
-  btn.disabled = true; btn.textContent = '⏳ Verifying...';
+  btn.disabled = true; btn.innerHTML = '⏳ Verifying...';
 
   const pw = document.getElementById('progressWrap');
   const pf = document.getElementById('progFill');
@@ -406,9 +458,9 @@ async function startVerify() {
   tb.innerHTML = '';
 
   emails.forEach((e, i) => {
-    tb.innerHTML += `<tr id="r${i}">
+    tb.innerHTML += `<tr id="row${i}">
       <td class="td-num">${i+1}</td>
-      <td class="td-email">${e}</td>
+      <td class="td-email">${escHtml(e)}</td>
       <td id="f${i}">${pill('checking')}</td>
       <td id="m${i}">${pill('checking')}</td>
       <td id="s${i}">${pill('checking')}</td>
@@ -420,7 +472,7 @@ async function startVerify() {
   updateStats(c);
 
   for (let i = 0; i < emails.length; i++) {
-    pf.style.width = Math.round(i / emails.length * 100) + '%';
+    pf.style.width = Math.round((i / emails.length) * 100) + '%';
     pt.textContent = `Checking ${i+1} of ${emails.length}: ${emails[i]}`;
 
     const e = emails[i];
@@ -433,49 +485,56 @@ async function startVerify() {
       mx   = await checkMX(domain);
       smtp = checkSMTP(domain, mx);
     }
-    document.getElementById(`m${i}`).innerHTML  = pill(mx);
-    document.getElementById(`s${i}`).innerHTML  = pill(smtp);
+    document.getElementById(`m${i}`).innerHTML = pill(mx);
+    document.getElementById(`s${i}`).innerHTML = pill(smtp);
 
     const status = getStatus(fmt, mx, smtp);
     document.getElementById(`st${i}`).innerHTML = pill(status);
 
     store.push({ email: e, format: fmt, mx, smtp, status });
-    if (status==='valid') c.valid++;
-    else if (status==='invalid') c.invalid++;
-    else if (status==='catchall') c.catchall++;
-    else c.unknown++;
+    if      (status === 'valid')    c.valid++;
+    else if (status === 'invalid')  c.invalid++;
+    else if (status === 'catchall') c.catchall++;
+    else                            c.unknown++;
     updateStats(c);
   }
 
   pf.style.width = '100%';
   pt.textContent = `✅ Done! ${emails.length} emails verified.`;
-  btn.disabled = false; btn.textContent = '🔍 Verify Emails Now';
-  rc.scrollIntoView({ behavior:'smooth', block:'start' });
+  btn.disabled = false;
+  btn.innerHTML = '🔍 Verify Emails Now';
+  rc.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function escHtml(s) {
+  return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
 }
 
 function updateStats(c) {
-  ['Total','Valid','Invalid','Catchall','Unknown'].forEach(k => {
-    document.getElementById('s'+k).textContent = c[k.toLowerCase()];
-  });
+  document.getElementById('sTotal').textContent    = c.total;
+  document.getElementById('sValid').textContent    = c.valid;
+  document.getElementById('sInvalid').textContent  = c.invalid;
+  document.getElementById('sCatchall').textContent = c.catchall;
+  document.getElementById('sUnknown').textContent  = c.unknown;
 }
 
 function toTSV(rows) {
   const hdr = '#\tEmail\tFormat\tMX Records\tSMTP\tStatus';
-  return [hdr, ...rows.map((r,i)=>
+  return [hdr, ...rows.map((r,i) =>
     `${i+1}\t${r.email}\t${r.format}\t${r.mx}\t${r.smtp}\t${r.status}`)].join('\n');
 }
 
 function copyAll() {
   if (!store.length) return;
   clip(toTSV(store));
-  toast('📋 All results copied — paste in Google Sheets!');
+  showToast('📋 Copied! Paste in Google Sheets');
 }
 
 function copyValid() {
   const v = store.filter(r => r.status === 'valid');
-  if (!v.length) { toast('No valid emails found'); return; }
+  if (!v.length) { showToast('No valid emails found!'); return; }
   clip(toTSV(v));
-  toast(`✅ ${v.length} valid emails copied!`);
+  showToast(`✅ ${v.length} valid email(s) copied!`);
 }
 
 function downloadCSV() {
@@ -483,24 +542,31 @@ function downloadCSV() {
   const hdr = '#,Email,Format,MX Records,SMTP,Status';
   const rows = store.map((r,i) =>
     `${i+1},"${r.email}",${r.format},${r.mx},${r.smtp},${r.status}`);
-  const blob = new Blob([[hdr,...rows].join('\n')], {type:'text/csv'});
+  const blob = new Blob([[hdr,...rows].join('\n')], { type:'text/csv;charset=utf-8;' });
   const a = document.createElement('a');
   a.href = URL.createObjectURL(blob);
-  a.download = 'nexvio-email-verify.csv';
-  a.click(); URL.revokeObjectURL(a.href);
-  toast('⬇️ CSV downloaded!');
+  a.download = 'nexvio-email-verification.csv';
+  document.body.appendChild(a); a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(a.href);
+  showToast('⬇️ CSV downloaded!');
 }
 
 function clip(txt) {
-  navigator.clipboard.writeText(txt).catch(() => {
-    const t = document.createElement('textarea');
-    t.value = txt; document.body.appendChild(t);
-    t.select(); document.execCommand('copy');
-    document.body.removeChild(t);
-  });
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(txt).catch(() => fallbackCopy(txt));
+  } else { fallbackCopy(txt); }
 }
 
-function toast(msg) {
+function fallbackCopy(txt) {
+  const t = document.createElement('textarea');
+  t.value = txt; t.style.position = 'fixed'; t.style.opacity = '0';
+  document.body.appendChild(t); t.select();
+  document.execCommand('copy');
+  document.body.removeChild(t);
+}
+
+function showToast(msg) {
   const el = document.getElementById('toast');
   el.textContent = msg; el.classList.add('show');
   setTimeout(() => el.classList.remove('show'), 3000);
