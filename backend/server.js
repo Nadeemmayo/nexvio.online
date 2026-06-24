@@ -2,7 +2,6 @@ const express = require('express');
 const cors = require('cors');
 const https = require('https');
 const http = require('http');
-const net = require('net');
 const dns = require('dns').promises;
 const { URL } = require('url');
 const PDFDocument = require('pdfkit');
@@ -12,17 +11,28 @@ app.use(cors());
 app.use(express.json({ limit: '1mb' }));
 
 const PORT = process.env.PORT || 3000;
+const ABSTRACT_API_KEY = 'da857b908de642f7a0e3781e42d270da';
 
-const DISPOSABLE_DOMAINS = new Set([
-  'mailinator.com','10minutemail.com','tempmail.com','guerrillamail.com',
-  'yopmail.com','throwaway.email','trashmail.com','fakeinbox.com',
-  'sharklasers.com','dispostable.com'
-]);
+// =========================================================
+// EMAIL VERIFICATION via Abstract API
+// =========================================================
 
-const ROLE_PREFIXES = new Set([
-  'admin','info','support','sales','contact','hello','team',
-  'office','help','no-reply','noreply','postmaster','webmaster'
-]);
+function verifyWithAbstract(email) {
+  return new Promise((resolve) => {
+    const url = `https://emailreputation.abstractapi.com/v1/?api_key=${ABSTRACT_API_KEY}&email=${encodeURIComponent(email)}`;
+    https.get(url, { timeout: 10000 }, (res) => {
+      let data = '';
+      res.on('data', chunk => data += chunk);
+      res.on('end', () => {
+        try {
+          const json = JSON.parse(data);
+          resolve(json);
+        } catch { resolve(null); }
+      });
+    }).on('error', () => resolve(null))
+      .on('timeout', () => resolve(null));
+  });
+}
 
 function strictFormatCheck(email) {
   if ((email.match(/@/g) || []).length !== 1) return false;
@@ -33,86 +43,44 @@ function strictFormatCheck(email) {
   return true;
 }
 
-async function getMxRecords(domain) {
-  try {
-    const records = await dns.resolveMx(domain);
-    if (!records || records.length === 0) return null;
-    records.sort((a, b) => a.priority - b.priority);
-    return records;
-  } catch { return null; }
-}
-
-function smtpCheck(mxHost, email) {
-  return new Promise((resolve) => {
-    let stage = 0;
-    let buffer = '';
-
-    const socket = net.createConnection(25, mxHost);
-    socket.setTimeout(8000);
-
-    const done = (accepted, response) => {
-      try { socket.write('QUIT\r\n'); socket.destroy(); } catch {}
-      resolve({ connected: true, accepted, response });
-    };
-
-    socket.on('data', (data) => {
-      buffer += data.toString();
-      const lines = buffer.split('\r\n');
-      buffer = lines.pop();
-      for (const line of lines) {
-        if (!line) continue;
-        const code = parseInt(line.substring(0, 3));
-        if (stage === 0 && code === 220) { stage = 1; socket.write('EHLO nexvio.online\r\n'); }
-        else if (stage === 1 && code === 250) { stage = 2; socket.write('MAIL FROM:<verify@nexvio.online>\r\n'); }
-        else if (stage === 2 && code === 250) { stage = 3; socket.write(`RCPT TO:<${email}>\r\n`); }
-        else if (stage === 3) {
-          if (code === 250 || code === 251) done(true, line);
-          else done(false, line);
-        }
-      }
-    });
-
-    socket.on('connect', () => {});
-    socket.on('timeout', () => { socket.destroy(); resolve({ connected: false, accepted: false, response: 'timeout' }); });
-    socket.on('error', (err) => resolve({ connected: false, accepted: false, response: err.message }));
-  });
-}
-
 async function verifyEmail(email) {
   email = String(email).trim().toLowerCase();
-  const domain = email.includes('@') ? email.split('@')[1] : '';
-  const local = email.includes('@') ? email.split('@')[0] : '';
 
   if (!strictFormatCheck(email)) {
     return { email, format: 'invalid', mx: 'invalid', smtp: 'invalid', status: 'Invalid', reason: 'Invalid email format' };
   }
 
-  if (DISPOSABLE_DOMAINS.has(domain)) {
-    return { email, format: 'valid', mx: 'unknown', smtp: 'invalid', status: 'Invalid', reason: 'Disposable email domain' };
+  const result = await verifyWithAbstract(email);
+
+  if (!result) {
+    return { email, format: 'valid', mx: 'unknown', smtp: 'unknown', status: 'Unknown', reason: 'API did not respond' };
   }
 
-  const mxRecords = await getMxRecords(domain);
-  if (!mxRecords) {
-    return { email, format: 'valid', mx: 'invalid', smtp: 'invalid', status: 'Invalid', reason: 'No MX records found' };
-  }
-
-  const isRoleBased = ROLE_PREFIXES.has(local);
-  const mxHost = mxRecords[0].exchange;
-  const smtp = await smtpCheck(mxHost, email);
+  const formatOk = result.is_valid_format === true ? 'valid' : 'invalid';
+  const mxOk = result.is_mx_found === true ? 'valid' : 'invalid';
+  const smtpOk = result.is_smtp_valid === true ? 'valid' : (result.is_smtp_valid === false ? 'invalid' : 'unknown');
+  const isDisposable = result.is_disposable_email === true;
+  const isCatchAll = result.is_catchall_email === true;
 
   let status, reason;
-  if (!smtp.connected) {
-    status = 'Unknown';
-    reason = 'SMTP server did not respond';
-  } else if (smtp.accepted) {
-    status = 'Valid';
-    reason = isRoleBased ? 'Valid - role-based address' : 'Mailbox exists';
+
+  if (formatOk === 'invalid') {
+    status = 'Invalid'; reason = 'Invalid email format';
+  } else if (mxOk === 'invalid') {
+    status = 'Invalid'; reason = 'Domain has no mail server';
+  } else if (isDisposable) {
+    status = 'Invalid'; reason = 'Disposable email address';
+  } else if (smtpOk === 'valid' && !isCatchAll) {
+    status = 'Valid'; reason = 'Mailbox exists and verified';
+  } else if (isCatchAll) {
+    status = 'Catch-All'; reason = 'Domain accepts all emails (catch-all)';
+  } else if (smtpOk === 'invalid') {
+    status = 'Invalid'; reason = 'Mailbox does not exist';
   } else {
-    status = 'Invalid';
-    reason = 'Mailbox does not exist';
+    status = 'Unknown'; reason = 'Could not fully verify';
   }
 
-  return { email, format: 'valid', mx: 'valid', smtp: smtp.connected ? (smtp.accepted ? 'valid' : 'invalid') : 'unknown', status, reason, isRoleBased, mxHost };
+  return { email, format: formatOk, mx: mxOk, smtp: smtpOk, status, reason, isDisposable, isCatchAll };
 }
 
 app.post('/api/verify-emails', async (req, res) => {
@@ -120,12 +88,19 @@ app.post('/api/verify-emails', async (req, res) => {
     const emails = Array.isArray(req.body.emails) ? req.body.emails : [];
     if (!emails.length) return res.status(400).json({ error: 'No emails provided' });
     if (emails.length > 25) return res.status(400).json({ error: 'Maximum 25 emails allowed' });
+
     const unique = [...new Set(emails.map(e => String(e).trim().toLowerCase()).filter(Boolean))];
-    const results = await Promise.all(unique.map(email => verifyEmail(email)));
+    const results = [];
+    for (const email of unique) {
+      const r = await verifyEmail(email);
+      results.push(r);
+    }
+
     res.json({
       total: results.length,
       valid: results.filter(r => r.status === 'Valid').length,
       invalid: results.filter(r => r.status === 'Invalid').length,
+      catchall: results.filter(r => r.status === 'Catch-All').length,
       unknown: results.filter(r => r.status === 'Unknown').length,
       results
     });
@@ -133,6 +108,10 @@ app.post('/api/verify-emails', async (req, res) => {
     res.status(500).json({ error: 'Verification failed: ' + err.message });
   }
 });
+
+// =========================================================
+// SEO AUDIT
+// =========================================================
 
 function fetchPage(targetUrl) {
   return new Promise((resolve, reject) => {
@@ -142,22 +121,22 @@ function fetchPage(targetUrl) {
     const start = Date.now();
     const req = lib.get(parsed, { timeout: 12000 }, (res) => {
       let data = '';
-      res.on('data', (chunk) => (data += chunk));
+      res.on('data', chunk => data += chunk);
       res.on('end', () => resolve({ html: data, statusCode: res.statusCode, headers: res.headers, loadTimeMs: Date.now() - start, finalUrl: targetUrl, usedHttps: parsed.protocol === 'https:' }));
     });
-    req.on('error', (err) => reject(new Error(`Could not reach ${targetUrl}: ${err.message}`)));
-    req.on('timeout', () => { req.destroy(); reject(new Error(`${targetUrl} took too long to respond`)); });
+    req.on('error', err => reject(new Error(`Could not reach ${targetUrl}: ${err.message}`)));
+    req.on('timeout', () => { req.destroy(); reject(new Error(`${targetUrl} took too long`)); });
   });
 }
 
 function fetchExtra(baseUrl, path) {
   return new Promise((resolve) => {
     let parsed;
-    try { parsed = new URL(path, baseUrl); } catch (e) { return resolve({ exists: false }); }
+    try { parsed = new URL(path, baseUrl); } catch { return resolve({ exists: false }); }
     const lib = parsed.protocol === 'http:' ? http : https;
     const req = lib.get(parsed, { timeout: 8000 }, (res) => {
       let data = '';
-      res.on('data', (c) => (data += c));
+      res.on('data', c => data += c);
       res.on('end', () => resolve({ exists: res.statusCode === 200, content: data }));
     });
     req.on('error', () => resolve({ exists: false }));
@@ -202,8 +181,8 @@ async function auditWebsite(targetUrl) {
   if (titleMatch && titleMatch[1].trim()) {
     const title = titleMatch[1].trim();
     addPass('On-Page', `Title: "${title}" (${title.length} chars)`);
-    if (title.length < 30) addIssue('medium', 'On-Page', 'Title too short (under 30 chars)');
-    else if (title.length > 60) addIssue('medium', 'On-Page', 'Title too long (over 60 chars)');
+    if (title.length < 30) addIssue('medium', 'On-Page', 'Title too short');
+    else if (title.length > 60) addIssue('medium', 'On-Page', 'Title too long');
   } else addIssue('high', 'On-Page', 'Missing title tag');
 
   const metaDescMatch = html.match(/<meta[^>]+name=["']description["'][^>]+content=["']([^"']*)["']/i);
@@ -260,7 +239,7 @@ function buildPdfReport(clientResult, competitorResult, res) {
   const brandColor = '#1F3A5F';
   const grey = '#666666';
 
-  doc.fillColor(brandColor).fontSize(26).font('Helvetica-Bold').text('SEO Audit Report', { align: 'left' });
+  doc.fillColor(brandColor).fontSize(26).font('Helvetica-Bold').text('SEO Audit Report');
   doc.moveDown(0.3);
   doc.fillColor(grey).fontSize(11).font('Helvetica').text('Technical SEO & On-Page SEO Analysis');
   doc.moveDown(0.5);
