@@ -1,0 +1,23 @@
+Entertitle: "Nexvio"
+description: "SEO, guest posting, authority link building, niche edits and organic growth solutions from Nexvio."
+url: "https://nexvio.online"
+baseurl: ""
+
+markdown: kramdown
+
+permalink: /blog/:title.html
+
+collections:
+  posts:
+    output: true
+
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+
+exclude:
+  - admin
+  - README.md
