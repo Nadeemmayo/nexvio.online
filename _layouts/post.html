@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>{{ page.meta_title | default: page.title | escape }} | Nexvio</title>
+
+  <meta
+    name="description"
+    content="{{ page.meta_description | default: page.description | escape }}"
+  >
+
+  <meta name="author" content="{{ page.author | default: 'Nexvio Team' | escape }}">
+
+  <meta name="robots" content="index, follow, max-image-preview:large">
+
+  <link rel="canonical" href="{{ page.url | absolute_url }}">
+
+  <link
+    rel="icon"
+    href="https://cdn-icons-png.flaticon.com/512/2103/2103633.png"
+    type="image/png"
+  >
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Nexvio">
+  <meta property="og:title" content="{{ page.meta_title | default: page.title | escape }}">
+  <meta property="og:description" content="{{ page.meta_description | default: page.description | escape }}">
+  <meta property="og:url" content="{{ page.url | absolute_url }}">
+
+  {% if page.thumbnail %}
+  <meta property="og:image" content="{{ page.thumbnail | absolute_url }}">
+  {% else %}
+  <meta property="og:image" content="https://nexvio.online/preview.jpg">
+  {% endif %}
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ page.meta_title | default: page.title | escape }}">
+  <meta name="twitter:description" content="{{ page.meta_description | default: page.description | escape }}">
+
+  {% if page.thumbnail %}
+  <meta name="twitter:image" content="{{ page.thumbnail | absolute_url }}">
+  {% else %}
+  <meta name="twitter:image" content="https://nexvio.online/preview.jpg">
+  {% endif %}
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+  >
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: #f8fafc;
+      color: #132f26;
+      font-family: Arial, Helvetica, sans-serif;
+      overflow-x: hidden;
+    }
+
+    :root {
+      --green: #132f26;
+      --green2: #1b4332;
+      --green3: #2d6a4f;
+      --gold: #d4a017;
+      --gold2: #b8960c;
+    }
+
+    .navbar {
+      background: #132f26;
+      border-bottom: 1px solid rgba(212, 160, 23, .22);
+    }
+
+    .logo {
+      font-size: 26px;
+      font-weight: 900;
+      color: white;
+    }
+
+    .logo span {
+      color: var(--gold);
+    }
+
+    .nav-link {
+      color: #fff;
+      font-size: 12px;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    .nav-link:hover {
+      color: var(--gold);
+    }
+
+    .nav-cta {
+      background: var(--gold);
+      color: #132f26 !important;
+      padding: 10px 18px;
+      border-radius: 999px;
+      font-weight: 900;
+    }
+
+    .post-hero {
+      background:
+        radial-gradient(circle at top left, rgba(212,160,23,.25), transparent 34%),
+        radial-gradient(circle at bottom right, rgba(45,106,79,.75), transparent 38%),
+        linear-gradient(135deg, #132f26, #2d6a4f);
+    }
+
+    .category-pill {
+      display: inline-block;
+      background: rgba(212,160,23,.18);
+      color: #d4a017;
+      border: 1px solid rgba(212,160,23,.45);
+      padding: 7px 14px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .article-content {
+      font-size: 17px;
+      line-height: 1.85;
+      color: #334155;
+    }
+
+    .article-content h2 {
+      color: #132f26;
+      font-size: 30px;
+      line-height: 1.3;
+      font-weight: 900;
+      margin-top: 38px;
+      margin-bottom: 16px;
+    }
+
+    .article-content h3 {
+      color: #1b4332;
+      font-size: 23px;
+      line-height: 1.4;
+      font-weight: 900;
+      margin-top: 30px;
+      margin-bottom: 14px;
+    }
+
+    .article-content p {
+      margin-bottom: 20px;
+    }
+
+    .article-content ul,
+    .article-content ol {
+      margin: 20px 0;
+      padding-left: 28px;
+    }
+
+    .article-content ul {
+      list-style: disc;
+    }
+
+    .article-content ol {
+      list-style: decimal;
+    }
+
+    .article-content li {
+      margin-bottom: 10px;
+    }
+
+    .article-content a {
+      color: #b8960c;
+      font-weight: 700;
+      text-decoration: underline;
+    }
+
+    .article-content img {
+      width: 100%;
+      height: auto;
+      border-radius: 18px;
+      margin: 30px 0;
+    }
+
+    .article-content blockquote {
+      border-left: 4px solid #d4a017;
+      background: #f1f5f9;
+      padding: 18px 22px;
+      margin: 28px 0;
+      border-radius: 8px;
+    }
+
+    .featured-image {
+      width: 100%;
+      max-height: 520px;
+      object-fit: cover;
+      border-radius: 24px;
+      box-shadow: 0 20px 50px rgba(19,47,38,.16);
+    }
+
+    .footer {
+      background: #0f2419;
+      border-top: 1px solid rgba(212,160,23,.15);
+    }
+
+    @media (max-width: 768px) {
+      .logo {
+        font-size: 22px;
+      }
+
+      .article-content {
+        font-size: 16px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav class="navbar sticky top-0 z-50 p-4">
+    <div class="max-w-7xl mx-auto flex justify-between items-center flex-wrap gap-4">
+
+      <a href="{{ '/' | relative_url }}" class="logo">
+        NEX<span>VIO</span>
+      </a>
+
+      <div class="hidden md:flex gap-5 items-center">
+        <a href="{{ '/' | relative_url }}" class="nav-link">Home</a>
+        <a href="{{ '/about.html' | relative_url }}" class="nav-link">About</a>
+        <a href="{{ '/services.html' | relative_url }}" class="nav-link">Services</a>
+        <a href="{{ '/portfolio.html' | relative_url }}" class="nav-link">Portfolio</a>
+        <a href="{{ '/inventory.html' | relative_url }}" class="nav-link">Inventory</a>
+        <a href="{{ '/premium-country-sites.html' | relative_url }}" class="nav-link">Country Sites</a>
+        <a href="{{ '/all-niches-sites.html' | relative_url }}" class="nav-link">All Niches</a>
+        <a href="{{ '/blog.html' | relative_url }}" class="nav-link">Blog</a>
+        <a href="{{ '/FAQs.html' | relative_url }}" class="nav-link">FAQ</a>
+        <a href="{{ '/contact.html' | relative_url }}" class="nav-cta">Contact</a>
+      </div>
+
+    </div>
+  </nav>
+
+  <section class="post-hero py-20 px-6">
+    <div class="max-w-4xl mx-auto text-center">
+
+      {% if page.category %}
+      <span class="category-pill">
+        {{ page.category | escape }}
+      </span>
+      {% endif %}
+
+      <h1 class="text-4xl md:text-6xl font-black leading-tight text-white mt-6 mb-6">
+        {{ page.title | escape }}
+      </h1>
+
+      {% if page.description %}
+      <p class="text-green-100 text-lg md:text-xl max-w-3xl mx-auto leading-8">
+        {{ page.description | escape }}
+      </p>
+      {% endif %}
+
+      <div class="mt-7 text-green-100 text-sm">
+        <span>{{ page.author | default: "Nexvio Team" | escape }}</span>
+
+        {% if page.date %}
+        <span> • {{ page.date | date: "%B %d, %Y" }}</span>
+        {% endif %}
+      </div>
+
+    </div>
+  </section>
+
+  <main class="py-16 px-6">
+    <article class="max-w-4xl mx-auto">
+
+      {% if page.thumbnail %}
+      <div class="mb-12">
+        <img
+          src="{{ page.thumbnail | relative_url }}"
+          alt="{{ page.thumbnail_alt | default: page.title | escape }}"
+          class="featured-image"
+        >
+      </div>
+      {% endif %}
+
+      <div class="article-content">
+        {{ content }}
+      </div>
+
+      <div class="mt-14 pt-8 border-t border-gray-200">
+        <a
+          href="{{ '/blog.html' | relative_url }}"
+          class="inline-flex items-center gap-2 font-black uppercase text-sm"
+          style="color:#132f26;"
+        >
+          <i class="fas fa-arrow-left"></i>
+          Back To Blog
+        </a>
+      </div>
+
+    </article>
+  </main>
+
+  <section class="py-16 px-6" style="background:#132f26;">
+    <div class="max-w-4xl mx-auto text-center">
+
+      <h2 class="text-3xl md:text-4xl font-black text-white mb-4">
+        Want A Smarter Link Strategy?
+      </h2>
+
+      <p class="text-green-100 mb-8">
+        Build stronger authority with professional guest posting,
+        niche edits and strategic link building.
+      </p>
+
+      <a
+        href="{{ '/contact.html' | relative_url }}"
+        class="inline-block bg-[#d4a017] text-green-950 font-black px-8 py-4 rounded-full"
+      >
+        Get Free Consultation
+      </a>
+
+    </div>
+  </section>
+
+  <footer class="footer py-8 px-6 text-center">
+
+    <p class="font-black text-2xl text-white">
+      NEX<span style="color:#d4a017;">VIO</span>
+    </p>
+
+    <p class="text-green-200 text-sm mt-2">
+      SEO Blog • Guest Posting • Link Building • Authority Growth
+    </p>
+
+    <p class="text-green-300 text-sm mt-4">
+      © 2026 Nexvio. All Rights Reserved.
+    </p>
+
+  </footer>
+
+</body>
+</html>
