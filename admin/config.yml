@@ -1,4 +1,4 @@
-herebackend:
+backend:
   name: github
   repo: Nadeemmayo/nexvio.online
   branch: main
