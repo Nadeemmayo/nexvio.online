@@ -1,4 +1,4 @@
-Entertitle: "Nexvio"
+title: "Nexvio"
 description: "SEO, guest posting, authority link building, niche edits and organic growth solutions from Nexvio."
 url: "https://nexvio.online"
 baseurl: ""
@@ -19,5 +19,4 @@ defaults:
       layout: "post"
 
 exclude:
-  - admin
   - README.md
