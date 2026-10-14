@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 149 56" role="img" aria-label="Nexvio">
+<g transform="translate(0 4)"><svg viewBox="0 0 48 48" width="48" height="48"><defs><linearGradient id="lgL" x1="0" y1="0" x2="48" y2="48" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#06B6D4"/><stop offset="1" stop-color="#0E7490"/></linearGradient></defs><path d="M24 2c12 0 22 8 22 21s-9 23-22 23S2 37 2 24 12 2 24 2Z" fill="url(#lgL)"/><circle cx="24" cy="24" r="4" fill="#fff"/><circle cx="14" cy="15" r="3" fill="#fff"/><circle cx="34" cy="15" r="3" fill="#fff"/><circle cx="24" cy="36" r="3" fill="#fff"/><path d="M16.5 17 21 21.2M31.5 17 27 21.2M24 28v5" fill="none" stroke="#fff" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"/></svg></g>
+<text x="62" y="29" font-family="Syne, Segoe UI, Arial, sans-serif" font-size="22" font-weight="700" fill="#041219" letter-spacing="-.4">Nex<tspan fill="#0891B2">vio</tspan></text>
+<text x="63" y="47" font-family="Onest, Segoe UI, Arial, sans-serif" font-size="9.5" font-weight="700" fill="#5A6081" letter-spacing="2.4">DATA-DRIVEN DIGITAL GROWTH</text>
+</svg>
