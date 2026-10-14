@@ -73,7 +73,7 @@ ul{margin:0;padding:0;list-style:none}
 .nav-cta{display:flex;align-items:center;gap:10px}
 .burger{display:none;width:44px;height:44px;border-radius:12px;border:1px solid var(--line-dark);background:rgba(255,255,255,.04);color:#fff;font-size:1.2rem;cursor:pointer}
 
-@media (max-width:1080px){
+@media (max-width:1200px){
   .site-header{backdrop-filter:none;-webkit-backdrop-filter:none;background:var(--ink)}
   .topbar{display:none}
   .burger{display:inline-flex;align-items:center;justify-content:center}
@@ -92,7 +92,7 @@ ul{margin:0;padding:0;list-style:none}
   .nav-cta .btn-header{display:none}
   .nav-links .mobile-cta{display:flex;margin-top:22px}
 }
-@media (min-width:1081px){.nav-links .mobile-cta{display:none}}
+@media (min-width:1201px){.nav-links .mobile-cta{display:none}}
 
 /* ---------- Sections ---------- */
 .section{padding:96px 0}
@@ -391,7 +391,7 @@ a.card{display:block}
 .reveal.in{opacity:1;transform:none}
 
 /* ---------- Responsive ---------- */
-@media (max-width:1080px){
+@media (max-width:1200px){
   .hero-grid,.split,.founder{grid-template-columns:1fr}
   .founder-photo{max-width:380px}
   .g-4,.steps,.stats{grid-template-columns:repeat(2,1fr)}
@@ -461,7 +461,7 @@ body.light .dots i{background:var(--line)}
 body.light .hero .check li::before{background:var(--accent-tint);color:var(--accent-600)}
 body.light .trust{background:#fff;color:var(--muted);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
 body.light .trust-list{color:var(--text);opacity:.75}
-@media (max-width:1080px){
+@media (max-width:1200px){
   body.light .site-header{background:#fff}
   body.light .nav-links{background:#fff}
   body.light .nav-link{border-bottom-color:var(--line)}
@@ -471,6 +471,8 @@ body.light .trust-list{color:var(--text);opacity:.75}
   body.light .menu a i{color:var(--brand)}
   body.light .menu-col h4{color:var(--muted-2)}
 }
+
+@media (min-width:1201px) and (max-width:1340px){.nav-link{padding:10px 10px;font-size:.9rem}.nav{gap:14px}.brand-tag{display:none}}
 
 .btn-primary{color:var(--on-brand)}
 h1,h2{font-weight:700}

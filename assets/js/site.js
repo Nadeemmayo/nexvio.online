@@ -13,7 +13,7 @@
   }
   document.querySelectorAll('.has-menu > .nav-link').forEach(function (btn) {
     btn.addEventListener('click', function (e) {
-      if (window.innerWidth <= 1080) {
+      if (window.innerWidth <= 1200) {
         e.preventDefault();
         var item = btn.parentElement;
         var isOpen = item.classList.toggle('open');
