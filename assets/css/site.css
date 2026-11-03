@@ -307,3 +307,27 @@ table.inv{width:100%;border-collapse:collapse;font-size:.93rem;min-width:820px}
 /* AI concierge toggle: always visible, round on mobile */
 .ai-fab{box-shadow:0 0 0 4px color-mix(in srgb,var(--gold) 35%,transparent),var(--shadow-lg)}
 @media (max-width:560px){.wa-float{display:grid;left:16px;bottom:16px;width:52px;height:52px}.ai-fab{width:56px;height:56px;padding:0;justify-content:center;border-radius:50%}}
+/* contact toggle (WhatsApp + email) */
+.wa-float{display:none!important}
+.ct{position:fixed;left:22px;bottom:22px;z-index:59}
+.ct-btn{width:58px;height:58px;border-radius:50%;border:0;cursor:pointer;display:grid;place-items:center;font-size:1.4rem;color:#fff;background:linear-gradient(135deg,#25D366,#128C7E);box-shadow:0 0 0 4px rgba(37,211,102,.22),var(--shadow-lg)}
+.ct-menu{position:absolute;left:0;bottom:72px;width:260px;background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow-lg);padding:10px}
+.ct-menu[hidden]{display:none}
+.ct-menu p{margin:6px 10px 8px;font:600 .72rem/1 "Body";letter-spacing:.14em;text-transform:uppercase;color:var(--gold-ink)}
+.ct-menu a{display:flex;gap:12px;align-items:center;padding:11px 10px;border-radius:12px;text-decoration:none;color:var(--ink)}
+.ct-menu a:hover{background:var(--soft)}
+.ct-menu a>i{width:42px;height:42px;border-radius:12px;display:grid;place-items:center;font-size:1.2rem;color:#fff;flex-shrink:0}
+.ct-wa>i{background:#25D366}.ct-em>i{background:var(--deep)}
+.ct-menu b{display:block;font-size:.95rem}.ct-menu small{display:block;color:var(--muted);font-size:.78rem;word-break:break-all}
+@media (max-width:560px){.ct{left:16px;bottom:16px}.ct-btn{width:56px;height:56px}}
+/* official social brand colours */
+.soc a{color:#fff!important;border-color:transparent!important;transition:transform .2s,filter .2s}
+.soc a:hover{transform:translateY(-2px);filter:brightness(1.08)}
+.soc .s-linkedin{background:#0A66C2!important}
+.soc .s-facebook{background:#1877F2!important}
+.soc .s-x{background:#0F1419!important}
+.soc .s-instagram{background:radial-gradient(circle at 30% 107%,#fdf497 0%,#fdf497 5%,#fd5949 45%,#d6249f 60%,#285AEB 90%)!important}
+.soc .s-fiverr{background:#1DBF73!important}
+.soc .s-upwork{background:#14A800!important}
+.soc .s-telegram{background:#26A5E4!important}
+.soc .fi{font:800 1rem/1 "Body";letter-spacing:-.02em}

@@ -81,6 +81,11 @@ if(inv){
  }
 }
 
+/* contact toggle */
+var ctb=$(".ct-btn"),ctm=$("#ct-menu");
+if(ctb&&ctm){ctb.addEventListener("click",function(e){e.stopPropagation();var o=ctm.hidden;ctm.hidden=!o;ctb.setAttribute("aria-expanded",o);ctb.innerHTML=o?'<i class="fas fa-xmark"></i>':'<i class="fas fa-comment-dots"></i>'});
+ document.addEventListener("click",function(e){if(!ctm.hidden&&!ctm.contains(e.target)){ctm.hidden=true;ctb.setAttribute("aria-expanded","false");ctb.innerHTML='<i class="fas fa-comment-dots"></i>'}})}
+
 /* AI concierge */
 var KB=window.KB||[];
 var fab=$(".ai-fab"),panel=$(".ai-panel");
