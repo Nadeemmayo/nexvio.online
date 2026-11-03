@@ -350,3 +350,15 @@ h1,h2,h3,.legal p,.article p{overflow-wrap:break-word;hyphens:auto;-webkit-hyphe
 @media (max-width:1320px) and (min-width:1081px){.nav>a,.nav .dd>button{padding:12px 9px;font-size:.92rem}.hdr .wrap{gap:16px}.brand small{letter-spacing:.14em}}
 .phero-grid>div,.hero-grid>div,.split>div{min-width:0}
 @media (max-width:480px){h1{font-size:clamp(1.9rem,8.4vw,2.3rem);overflow-wrap:anywhere}}
+/* team */
+.tm-grid{display:flex;justify-content:center;gap:24px;flex-wrap:wrap}
+.tm{display:grid;grid-template-columns:220px 1fr;gap:26px;align-items:center;max-width:720px;background:#fff;border:1px solid var(--line);border-radius:22px;padding:22px;box-shadow:var(--shadow)}
+.tm-ph{border-radius:16px;overflow:hidden;aspect-ratio:4/5;background:var(--soft)}
+.tm-ph img{width:100%;height:100%;object-fit:cover;object-position:50% 20%}
+.tm-b b{display:block;font:700 1.35rem/1.2 "Display";color:var(--ink)}
+.tm-b span{display:block;color:var(--gold-ink);font-weight:600;font-size:.9rem;margin:4px 0 12px}
+.tm-b p{color:var(--muted);margin:0 0 14px}
+.tm-mail{display:inline-flex;gap:8px;align-items:center;font-weight:600;font-size:.9rem;color:var(--ink);text-decoration:none;word-break:break-all}
+@media (max-width:640px){.tm{grid-template-columns:1fr}.tm-ph{max-width:260px}}
+@media (max-width:560px){.brand{min-width:0;flex-shrink:1}.brand b{font-size:1.15rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:block}.brand span{min-width:0}.hdr .wrap{gap:10px}.hdr-cta{flex-shrink:0}}
+@media (max-width:560px){.brand b{white-space:normal;overflow:visible;text-overflow:clip;line-height:1.1;font-size:1.08rem}}
