@@ -6,8 +6,8 @@
 @font-face{font-family:"Body";src:url(/assets/fonts/body-600.woff2) format("woff2");font-weight:600;font-display:swap}
 @font-face{font-family:"Body";src:url(/assets/fonts/body-700.woff2) format("woff2");font-weight:700;font-display:swap}
 :root{
- --ink:#1C1642;--ink-2:#2E2763;--deep:#1A1240;--deep-2:#3A2A86;--gold:#C8A464;--gold-2:#EFDDB0;--gold-ink:#7D5E1D;
- --bg:#F8F7FC;--paper:#FFFFFF;--muted:#5B5876;--line:#E4E1EE;--soft:#F1EEF8;
+ --ink:#1C0F33;--ink-2:#33244F;--deep:#1D0B3A;--deep-2:#4C1D95;--gold:#C084FC;--gold-2:#E9D5FF;--gold-ink:#7E22CE;
+ --bg:#FAF8FD;--paper:#FFFFFF;--muted:#605A72;--line:#ECE5F5;--soft:#F4EFFB;
  --r:18px;--r-sm:12px;--shadow:0 1px 2px rgba(15,25,60,.06),0 12px 32px -12px rgba(15,25,60,.18);
  --shadow-lg:0 30px 70px -30px rgba(10,20,60,.45);--max:1200px;
 }
@@ -362,3 +362,30 @@ h1,h2,h3,.legal p,.article p{overflow-wrap:break-word;hyphens:auto;-webkit-hyphe
 @media (max-width:640px){.tm{grid-template-columns:1fr}.tm-ph{max-width:260px}}
 @media (max-width:560px){.brand{min-width:0;flex-shrink:1}.brand b{font-size:1.15rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:block}.brand span{min-width:0}.hdr .wrap{gap:10px}.hdr-cta{flex-shrink:0}}
 @media (max-width:560px){.brand b{white-space:normal;overflow:visible;text-overflow:clip;line-height:1.1;font-size:1.08rem}}
+/* founder + CEO side by side */
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:26px;max-width:980px;margin:0 auto}
+.duo-c{background:#fff;border:1px solid var(--line);border-radius:24px;overflow:hidden;box-shadow:var(--shadow);display:flex;flex-direction:column}
+.duo-ph{aspect-ratio:6/7;background:var(--soft);overflow:hidden}
+.duo-ph img{width:100%;height:100%;object-fit:cover;object-position:50% 18%}
+.duo-b{padding:24px 26px 28px}
+.duo-b b{display:block;font:700 1.45rem/1.2 "Display";color:var(--ink)}
+.duo-b span{display:block;color:var(--gold-ink);font-weight:600;font-size:.92rem;margin:5px 0 12px}
+.duo-b p{color:var(--muted);margin:0 0 14px}
+@media (max-width:560px){.duo{grid-template-columns:1fr 1fr;gap:12px}.duo-b{padding:14px}.duo-b b{font-size:1.05rem}.duo-b p{display:none}.duo-b .soc a{width:34px;height:34px}.duo-b .tm-mail{font-size:.75rem}}
+.duo{max-width:860px}.duo-ph{aspect-ratio:1/1}
+/* founder | text | CEO */
+.duo3{display:grid;grid-template-columns:1fr 1.05fr 1fr;gap:32px;align-items:center}
+.duo3-m{text-align:center}
+.duo3-m .eyebrow{justify-content:center}
+.duo3-m .lead{margin:0 auto 18px}
+.duo3-m blockquote{margin:0;font:600 1.15rem/1.5 "Display";color:var(--ink)}
+.duo3 .duo-c{height:100%}
+.duo3 .duo-ph{aspect-ratio:4/5}
+@media (max-width:960px){.duo3{grid-template-columns:1fr 1fr;gap:14px}.duo3-m{grid-column:1/-1;order:-1;margin-bottom:10px}}
+@media (max-width:560px){.duo3 .duo-b{padding:14px}.duo3 .duo-b b{font-size:1.05rem}.duo3 .duo-b p{display:none}.duo3 .duo-b .soc a{width:34px;height:34px}.duo3 .duo-b .tm-mail{font-size:.72rem}}
+.duo3{align-items:stretch}.duo3-m{align-self:center}.duo3-l,.duo3-r{display:flex}.duo3-l .duo-c,.duo3-r .duo-c{width:100%}
+.soc .s-gmail{background:#fff!important;border:1px solid var(--line)!important}
+.soc span{width:42px;height:42px;border-radius:12px;display:grid;place-items:center;color:#fff;cursor:default}
+.soc .s-tiktok{background:#0F1419!important}.soc .s-snapchat{background:#FFFC00!important;color:#111!important}.soc .s-whatsapp{background:#25D366!important}
+@media (min-width:961px){.duo3-m{position:relative;top:-96px}}
+.skip{left:8px!important;top:-80px}.skip:focus{top:8px}

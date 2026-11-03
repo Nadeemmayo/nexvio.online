@@ -101,8 +101,8 @@ if(fab&&panel){
  function open(){panel.classList.add("open");fab.setAttribute("aria-expanded","true");if(!greeted){greeted=true;say(S.greet)}setTimeout(function(){inp.focus()},50)}
  fab.addEventListener("click",function(){panel.classList.contains("open")?(panel.classList.remove("open"),fab.setAttribute("aria-expanded","false")):open()});
  $(".ai-head button",panel).addEventListener("click",function(){panel.classList.remove("open");fab.setAttribute("aria-expanded","false")});
- var stop={the:1,a:1,an:1,and:1,or:1,to:1,of:1,for:1,in:1,on:1,is:1,are:1,do:1,does:1,you:1,your:1,i:1,me:1,my:1,we:1,can:1,what:1,how:1,with:1,it:1,be:1,about:1,please:1,der:1,die:1,das:1,und:1,ist:1,ein:1,eine:1,ich:1,sie:1,wir:1,mit:1,fur:1,von:1,zu:1,was:1,wie:1,ihr:1,ihre:1,es:1,bitte:1,auf:1,den:1,dem:1,des:1,im:1};
- function toks(t){return t.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/ß/g,"ss").replace(/[^a-z0-9 ]/g," ").split(/\s+/).filter(function(w){return w.length>1&&!stop[w]})}
+ var stop={the:1,a:1,an:1,and:1,or:1,to:1,of:1,for:1,in:1,on:1,is:1,are:1,do:1,does:1,you:1,your:1,i:1,me:1,my:1,we:1,can:1,what:1,how:1,with:1,it:1,be:1,about:1,please:1,في:1,من:1,على:1,هل:1,ما:1,ماذا:1,كيف:1,عن:1,إلى:1,مع:1,هي:1,هو:1,لكم:1,لديكم:1,der:1,die:1,das:1,und:1,ist:1,ein:1,eine:1,ich:1,sie:1,wir:1,mit:1,fur:1,von:1,zu:1,was:1,wie:1,ihr:1,ihre:1,es:1,bitte:1,auf:1,den:1,dem:1,des:1,im:1};
+ function toks(t){return t.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/ß/g,"ss").replace(/[^a-z0-9\u0600-\u06FF ]/g," ").split(/\s+/).filter(function(w){return w.length>1&&!stop[w]})}
  function answer(q){
   var qt=toks(q),best=null,bs=0;
   KB.forEach(function(k){var kt=toks(k.k+" "+k.q),s=0;qt.forEach(function(w){kt.forEach(function(x){if(x===w)s+=2;else if(x.length>3&&w.length>3&&(x.indexOf(w)===0||w.indexOf(x)===0))s+=1})});if(s>bs){bs=s;best=k}});
